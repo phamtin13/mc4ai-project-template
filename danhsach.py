@@ -10,5 +10,5 @@ def danhsach():
     else:
       return 'Nữ'
   dfmid['Gen'] = dfmid.apply(gen, axis=1)
-  st.write(dfmid.shape)
+  st.write(dfmid)
 danhsach()
