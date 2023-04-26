@@ -9,6 +9,6 @@ def danhsach():
       return 'Nam'
     else:
       return 'Nữ'
-  #dfmid['Gen'] = dfmid.apply(grade, axis=1)
+  dfmid['Gen'] = dfmid.apply(gen, axis=1)
   st.write(dfmid.shape)
 danhsach()
