@@ -5,7 +5,7 @@ def danhsach():
   dfmid = df.copy()
   COLS = dfmid.columns.values.tolist().copy()
   def gen(row):
-    if row == 'M':
+    if row[1] == 'M':
       return 'Nam'
     else:
       return 'Nữ'
