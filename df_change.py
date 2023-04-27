@@ -23,7 +23,7 @@ def df_change():
              ['Văn', 'CV','ts'],
              ['Tích hợp / Song ngữ', 'TH','SN'],
              ['Khác', 'A', 'B'],
-             ['Sử - Địa', 'CSĐ','ts']])
+             ['Sử - Địa', 'CSD','ts']])
   def subject(row):
     r = ''.join(re.findall('\D', row[COLS[2]]))
     for i in subjects:
