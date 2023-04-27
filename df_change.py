@@ -8,6 +8,9 @@ def df_change():
   dfmid = df.copy()
   COLS = dfmid.columns.values.tolist().copy()
   
+  for i in range(3,17): 
+    dfmid[COLS[i]].fillna(0, inplace=True)
+  
   def gen(row):
     if row[COLS[1]] == 'M':
       return 'Nam'
