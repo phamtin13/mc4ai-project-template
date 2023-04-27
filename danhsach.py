@@ -11,5 +11,6 @@ def danhsach():
   with col1:
     st.write('Giới tính')
   st.write(dfmid)
+  st.write(df)
     
 danhsach()
