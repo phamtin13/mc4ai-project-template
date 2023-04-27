@@ -16,3 +16,4 @@ def danhsach():
     st.write('Giới tính')
   with col4:
     st.write('Giới tính') 
+danhsach()
