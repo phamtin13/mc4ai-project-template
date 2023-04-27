@@ -13,6 +13,6 @@ def df_change():
       return 'Nữ'
   dfmid['Gen'] = dfmid.apply(gen, axis=1)
   st.write(dfmid)
-  st.write(np.unique(dfmid[COLS[1]]))
+  st.write(np.unique(dfmid[COLS[2]]))
   
 df_change()
