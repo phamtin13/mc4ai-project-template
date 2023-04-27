@@ -14,5 +14,22 @@ def df_change():
   dfmid['Gen'] = dfmid.apply(gen, axis=1)
   st.write(dfmid)
   st.write(np.unique(dfmid[COLS[2]]))
+  subjects = np.array([['Anh','CA', 'ts'],
+             ['Hoá','CH','ts'],
+             ['Lý', 'CL','ts'],
+             ['Sinh','CS','ts'],
+             ['Toán','CT','ts'],
+             ['Tin','CTIN','ts'],
+             ['Trung - Nhật','CTRN','ts'],
+             ['Văn', 'CV','ts'],
+             ['Tích hợp / Song ngữ', 'TH','SN'],
+             ['Khác', 'A', 'B'],
+             ['Sử - Địa', 'CSĐ','ts']])
+  def subject(row):
+    r = ''.join(re.findall('\D', row[COLS[2]]))
+    for i in subjects:
+      if r == i[1] or r == i[2]:
+        return i[0]
+  dfmid['Subject'] = dfmid.apply(subject, axis=1)
   
 df_change()
