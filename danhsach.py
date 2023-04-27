@@ -13,5 +13,6 @@ def danhsach():
  
   st.write(dfmid)
   df.drop(columns=COLS[17:], inplace=True)
+  st.write(dfmid)
     
 danhsach()
