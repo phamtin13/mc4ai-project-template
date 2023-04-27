@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from df_change.py import df_change
+from df_change import df_change
 
 def danhsach():
   df = pd.read_csv("py4ai-score.csv", low_memory=False)
