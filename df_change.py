@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import streamlit as st
 
 def df_change():
   df = pd.read_csv("py4ai-score.csv", low_memory=False)
