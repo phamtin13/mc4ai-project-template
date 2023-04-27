@@ -15,6 +15,12 @@ def df_change():
       return 'Nữ'
   dfmid['Gen'] = dfmid.apply(gen, axis=1)
   
+  def grade(row):
+    for i in range(10,13):
+      if row[COLS[2]][:2] == str(i):
+        return i
+  dfmid['Grade'] = dfmid.apply(grade, axis=1)
+  
   subjects = np.array([['Anh','CA', 'ts'],
              ['Hoá','CH','ts'],
              ['Lý', 'CL','ts'],
