@@ -11,7 +11,7 @@ def df_change():
   for i in range(3,16): 
     dfmid[COLS[i]].fillna(0, inplace=True)
   
-  #dfmid[COLS[17]].fillna('N', inplace=True)
+  dfmid[COLS[16]].fillna('N', inplace=True)
   
   def gen(row):
     if row[COLS[1]] == 'M':
