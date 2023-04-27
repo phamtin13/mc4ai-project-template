@@ -7,12 +7,14 @@ def df_change():
   df = pd.read_csv("py4ai-score.csv", low_memory=False)
   dfmid = df.copy()
   COLS = dfmid.columns.values.tolist().copy()
+  
   def gen(row):
     if row[COLS[1]] == 'M':
       return 'Nam'
     else:
       return 'Nữ'
   dfmid['Gen'] = dfmid.apply(gen, axis=1)
+  
   subjects = np.array([['Anh','CA', 'ts'],
              ['Hoá','CH','ts'],
              ['Lý', 'CL','ts'],
@@ -31,7 +33,10 @@ def df_change():
         return i[0]
   dfmid['Subject'] = dfmid.apply(subject, axis=1)
   
+  def classroom(row):
+    return 'A' + row[COLS[3]][:3]
+  dfmid['Classroom'] = dfmid.apply(classroom, axis=1)
+  
   st.write(dfmid)
-  st.write(np.unique(dfmid[COLS[2]]))
   
 df_change()
