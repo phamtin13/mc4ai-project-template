@@ -9,3 +9,9 @@ def danhsach():
   
   with col1:
     st.write('Giới tính')  
+  with col2:
+    st.write('Giới tính') 
+  with col3:
+    st.write('Giới tính')
+  with col4:
+    st.write('Giới tính') 
