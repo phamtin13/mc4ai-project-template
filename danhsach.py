@@ -10,7 +10,8 @@ def danhsach():
   dfmid = df_change()
   with col1:
     st.write('Giới tính')
+ 
   st.write(dfmid)
-  st.write(df)
+  df.drop(columns=COLS[17:], inplace=True)
     
 danhsach()
