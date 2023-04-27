@@ -37,6 +37,13 @@ def df_change():
     return 'A' + row[COLS[3]][:3]
   dfmid['Classroom'] = dfmid.apply(classroom, axis=1)
   
+  def partofday(row):
+    if row[COLS[3]][-1] == 'C':
+      return 'Chiều'
+    else:
+      return 'Sáng'
+  dfmid['Part of day'] = dfmid.apply(partofday, axis=1)
+  
   st.write(dfmid)
   
 df_change()
