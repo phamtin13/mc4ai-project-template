@@ -7,7 +7,7 @@ def df_change():
   dfmid = df.copy()
   COLS = dfmid.columns.values.tolist().copy()
   def gen(row):
-    if[row[COLS[1]]] == 'M':
+    if row[COLS[1]] == 'M':
       return 'Nam'
     else:
       return 'Nữ'
