@@ -44,7 +44,18 @@ def danhsach():
       A_day = np.stack(([False]*len(uniday),uniday,['Part of day']*len(uniday))).T
     else:
       A_day = np.stack(([True]*len(uniday),uniday,['Part of day']*len(uniday))).T
-  st.write(A_day)
+      
+  unisub = np.unique(dfmid['Subject']).tolist()
+  unisub.remove('Khác')
+  unisub.append('Khác')
+  check_sub = []
+  cols = st.columns(5)
+  for i in range(2):
+    for j in range(5):
+      check_sub.append(cols[j].checkbox(unisub[5*i+j],key=unisub[5*i+j]+'key'))
+  A_sub = np.stack((check_sub,unisub,['Part of day']*len(unisub))).T
+  
+  st.write(A_sub)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
     
