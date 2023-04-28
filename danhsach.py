@@ -7,12 +7,11 @@ def danhsach():
   col1, col2, col3, col4 = st.columns(4)
   dfmid = df_change()
   COLS_mid = dfmid.columns.values.tolist().copy()
-  needrop = []
   
   with col1:
     st.write('Giới tính')
     unigen = np.unique(dfmid['Gen'])
-    check_gender = np.array([st.checkbox(i) for i in unigen])
+    check_gender = [st.checkbox(i) for i in unigen]
     A_gender = np.stack((check_gender,unigen,['Gen']*len(unigen))).T
 
   with col2:
