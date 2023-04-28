@@ -56,11 +56,12 @@ def danhsach():
   A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
   
   A = np.concatenate((A_gender, A_grade, A_room, A_day, A_sub))
-  st.write(A)
+  
   needrop = []
   for i in A:
     if i[0] == False:
       needrop += np.where(dfmid[i[2]]==i[1])[0].tolist()
+  st.write(np.unique(needrop))
   dfmid.drop(np.unique(needrop), inplace=True)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   #st.write(dfmid)
