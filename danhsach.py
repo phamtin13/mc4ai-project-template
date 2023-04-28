@@ -15,7 +15,7 @@ def danhsach():
     unigen = np.unique(dfmid['Gen'])
     check_gender = np.array([st.checkbox(i) for i in unigen])
     A_gender = np.stack((check_gender,unigen,np.array(['Gen']*len(unigen)))).T
-    st.write(A_gender)
+    
     
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
