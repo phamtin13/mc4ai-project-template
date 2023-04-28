@@ -13,7 +13,7 @@ def danhsach():
   with col1:
     st.write('Giới tính')
     check_gender = np.array([st.checkbox(i) for i in np.unique(dfmid['Gen'])])
-    A_gender = np.stack((check_gender,np.unique(dfmid['Gen']),np.array(['Gen']*len(np.unique(dfmid['Gen'])))))
+    A_gender = np.stack((check_gender,np.unique(dfmid['Gen']),np.array(['Gen']*len(np.unique(dfmid['Gen']))))).T
     st.write(A_gender)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
