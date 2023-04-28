@@ -37,7 +37,9 @@ unisub = np.unique(dfmid['Subject'])
       #unisub = unisub[1:]
       #break
       
-cols = unisub.copy()
-tuple(cols[:5]) = st.columns(4)
-with cols[1]:
-  st.write('Taylor')
+unicols = unisub.copy()
+for _ in range(2):
+  cols = st.columns(5)
+    for i in range(5):
+      cols[i].checkbox(unicols[i])
+      cols = cols[1:]
