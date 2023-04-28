@@ -10,7 +10,7 @@ for i in A:
   if i[0] == False:
     needrop += np.where(dfmid['Subject']==i[1])[0].tolist()
 dfmid.drop(needrop, inplace=True)
-st.write(dfmid)
+#st.write(dfmid)
 
 ts = ['Taylor Swift', 'Kanye West', 'Justin Bieber', 'Selena Gomez']
 options = st.multiselect('Your favorite celebrity', ts)
@@ -25,3 +25,14 @@ if len(options) != 0 and len(options) != len(uniday):
 else:
   A_day = np.stack(([True]*len(uniday),uniday,['Part of day']*len(uniday))).T
 st.write(A_day)
+
+dfmid = df_change()
+#check_subject = np.array([st.checkbox(i) for i in np.unique(dfmid['Subject'])])
+#A = np.stack((check,np.unique(dfmid['Subject']))).T
+unisub = np.unique(dfmid['Subject'])
+for i in range(2):
+  for j in range(5):
+    for i in unisub:
+      st.checkbox(i)
+      unisub = unisub[1:]
+      break
