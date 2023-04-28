@@ -26,7 +26,7 @@ def df_change():
         return i
   dfmid['Grade'] = dfmid.apply(grade, axis=1)
   
-  subjects = np.array([['Anh','CA'],
+  subjects = [['Anh','CA'],
              ['Hoá','CH'],
              ['Lý', 'CL'],
              ['Sinh','CS'],
@@ -36,7 +36,7 @@ def df_change():
              ['Văn', 'CV'],
              ['Tích hợp / Song ngữ', 'TH','SN'],
              ['Khác', 'A', 'B'],
-             ['Sử - Địa', 'CSD']])
+             ['Sử - Địa', 'CSD']]
   def subject(row):
     r = ''.join(re.findall('\D', row[COLS[2]]))
     for i in subjects:
