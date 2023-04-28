@@ -64,6 +64,6 @@ def danhsach():
   st.write(np.unique(needrop))
   dfmid.drop(np.unique(needrop), inplace=True)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
-  #st.write(dfmid)
+  st.write(dfmid)
     
 danhsach()
