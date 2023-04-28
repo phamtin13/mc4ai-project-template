@@ -23,7 +23,7 @@ def danhsach():
       pass
     else:
       unigrade.remove(radio)
-  st.write(unigrade)
+    A_grade = np.stack((check_gender,unigen,np.array(['Gen']*len(unigen)))).T
     
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
