@@ -38,9 +38,11 @@ unisub = np.unique(dfmid['Subject'])
       #break
       
 unicols = unisub.copy()
-for _ in range(2):
-  cols = st.columns(5)
+cols = st.columns(5)
   for i in range(5):
     with cols[i]:
-      st.checkbox(unicols[i])
-    unicols = unicols[5:]
+      for j in range(2):
+        st.checkbox(unicols[j])
+      if len(unicols) <= 2:
+        break
+      unicols = unicols[2:]
