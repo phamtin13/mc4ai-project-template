@@ -16,13 +16,14 @@ def danhsach():
     A_gender = np.stack((check_gender,unigen,np.array(['Gen']*len(unigen)))).T
 
   with col2:
-    grades = np.array(['Tất cả']+np.unique(dfmid['Grade']).tolist())
+    unigrade = np.unique(dfmid['Grade']).tolist()
+    grades = np.array(['Tất cả']+ unigrade)
     radio = st.radio(label='Khối lớp', options=grades)
     if radio == 'Tất cả':
       pass
     else:
-      grade_drop = np.unique(dfmid['Grade']).tolist().remove(radio)
-  st.write(grade_drop)
+      grade_drop = unigrade.remove(radio)
+  st.write(unigrade)
     
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
