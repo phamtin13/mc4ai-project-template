@@ -51,7 +51,7 @@ def danhsach():
   cols = st.columns(5)
   for i in range(2):
     for j in range(5):
-      check_sub.append(str(cols[j].checkbox(unisub[5*i+j]),key=unisub[5*i+j]+'key'))
+      check_sub.append(str(cols[j].checkbox(unisub[5*i+j],key=unisub[5*i+j]+'key')))
   A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
   
   A = np.concatenate((A_gender, A_grade, A_room, A_day, A_sub))
