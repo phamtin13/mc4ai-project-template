@@ -36,7 +36,7 @@ def danhsach():
       A_room = np.stack(([False]*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
   
   with col4:
-    uniday = np.unique(dfmid['Part of day']).tolist()
+    uniday = (np.unique(dfmid['Part of day']).tolist()).reverse()
     options = st.multiselect('Buổi', uniday)
     if len(options) == 1:
       for i in options:
