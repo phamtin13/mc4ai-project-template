@@ -59,6 +59,6 @@ def df_change():
       return 'Sáng'
   dfmid['Part of day'] = dfmid.apply(partofday, axis=1)
   
-  st.write(dfmid)
+  return dfmid
   
 df_change()
