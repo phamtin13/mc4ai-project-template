@@ -42,5 +42,5 @@ for _ in range(2):
   cols = st.columns(5)
   for i in range(5):
     with cols[i]:
-      st.checkbox(unicols[i])
+      st.checkbox(unicols[0])
       unicols = unicols[1:]
