@@ -17,7 +17,7 @@ options = st.multiselect('Your favorite celebrity', ts)
 st.write('Wow, you chose:',len(options))
 
 uniday = np.unique(dfmid['Part of day']).tolist()
-options = st.multiselect('Buổi', uniday)
+options = st.multiselect('Buổi', uniday, uniday)
 if len(options) == 1:
   uniday.remove(options[0])
   A_day = np.stack(([False]*len(uniday),uniday,['Part of day']*len(uniday))).T
