@@ -60,7 +60,7 @@ def danhsach():
   needrop = []
   for i in A:
     if i[0] == False:
-      needrop += np.where(dfmid['Subject']==i[1])[0].tolist()
+      needrop += np.where(dfmid[i[2]]==i[1])[0].tolist()
   dfmid.drop(np.unique(needrop), inplace=True)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
