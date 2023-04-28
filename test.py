@@ -11,3 +11,7 @@ for i in A:
     needrop += np.where(dfmid['Subject']==i[1])[0].tolist()
 dfmid.drop(needrop, inplace=True)
 st.write(dfmid)
+
+ts = ['Taylor Swift', 'Kanye West', 'Justin Bieber', 'Selena Gomez']
+options = st.multiselect('Your favorite celebrity', ts)
+st.write('Wow, you chose:',options)
