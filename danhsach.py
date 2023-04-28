@@ -25,6 +25,7 @@ def danhsach():
       unigrade.remove(radio)
       A_grade = np.stack((np.array([False]*len(unigrade)),unigrade,np.array(['Grade']*len(unigrade)))).T
     
+  st.write(A_grade)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
     
