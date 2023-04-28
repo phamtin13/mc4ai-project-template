@@ -37,9 +37,12 @@ unisub = np.unique(dfmid['Subject']).tolist()
       #unisub = unisub[1:]
       #break
 
+A_sub = []
 unisub.remove('Khác')
 unisub.append('Khác')
 cols = st.columns(5)
 for i in range(2):
   for j in range(5):
-    cols[j].checkbox(unisub[5*i+j],key=unisub[5*i+j]+'key')
+    A_sub.append(cols[j].checkbox(unisub[5*i+j],key=unisub[5*i+j]+'key'))
+st.write(A_sub)
+    
