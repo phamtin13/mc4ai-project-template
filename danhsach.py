@@ -20,10 +20,10 @@ def danhsach():
     grades = np.array(['Tất cả']+ unigrade)
     radio = st.radio(label='Khối lớp', options=grades)
     if radio == 'Tất cả':
-      pass
+      A_grade = np.stack((np.array([True]*len(unigrade)),unigrade,np.array(['Grade']*len(unigrade)))).T
     else:
       unigrade.remove(radio)
-    A_grade = np.stack((check_gender,unigen,np.array(['Gen']*len(unigen)))).T
+      A_grade = np.stack((np.array([False]*len(unigrade)),unigrade,np.array(['Grade']*len(unigrade)))).T
     
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
