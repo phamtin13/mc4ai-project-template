@@ -59,7 +59,7 @@ def danhsach():
   needrop = []
   for i in A:
     if i[0] == 'False':
-      st.write("Taylor Swift is the Music Industry')
+      st.write('Taylor Swift is the Music Industry')
       needrop += np.where(dfmid[i[2]]==i[1])[0].tolist()
   
   dfmid.drop(np.unique(needrop), inplace=True)
