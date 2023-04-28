@@ -55,7 +55,13 @@ def danhsach():
       check_sub.append(cols[j].checkbox(unisub[5*i+j],key=unisub[5*i+j]+'key'))
   A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
   
-  st.write(A_sub)
+  A = np.concatenate((A_gender, A_grade, A_room, A_day, A_sub))
+  
+  needrop = []
+  for i in A:
+    if i[0] == False:
+      needrop += np.where(dfmid['Subject']==i[1])[0].tolist()
+  dfmid.drop(np.unique(needrop), inplace=True)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
     
