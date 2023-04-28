@@ -63,6 +63,8 @@ def danhsach():
   
   dfmid.drop(np.unique(needrop), inplace=True)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
+  
+  st.write('Số học sinh:',len(dfmid),'('+str(len(dfmid[dfmid['Gen']=='Nam']))+' nam, '+str(len(dfmid[dfmid['Gen']=='Nữ']))+' nữ)')
   st.write(dfmid)
     
 danhsach()
