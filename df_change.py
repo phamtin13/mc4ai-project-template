@@ -26,22 +26,26 @@ def df_change():
         return i
   dfmid['Grade'] = dfmid.apply(grade, axis=1)
   
-  subjects = np.array([['Anh','CA', 'ts'],
-             ['Hoá','CH','ts'],
-             ['Lý', 'CL','ts'],
-             ['Sinh','CS','ts'],
-             ['Toán','CT','ts'],
-             ['Tin','CTIN','ts'],
-             ['Trung - Nhật','CTRN','ts'],
-             ['Văn', 'CV','ts'],
+  subjects = np.array([['Anh','CA'],
+             ['Hoá','CH'],
+             ['Lý', 'CL'],
+             ['Sinh','CS'],
+             ['Toán','CT'],
+             ['Tin','CTIN'],
+             ['Trung - Nhật','CTRN'],
+             ['Văn', 'CV'],
              ['Tích hợp / Song ngữ', 'TH','SN'],
              ['Khác', 'A', 'B'],
-             ['Sử - Địa', 'CSD','ts']])
+             ['Sử - Địa', 'CSD']])
   def subject(row):
     r = ''.join(re.findall('\D', row[COLS[2]]))
     for i in subjects:
-      if r == i[1] or r == i[2]:
-        return i[0]
+      if len(i) == 2:
+        if r == i[1]:
+          return i[0]
+      else:
+        if r == i[1] or r == i[2]:
+          return i[0]
   dfmid['Subject'] = dfmid.apply(subject, axis=1)
   
   def classroom(row):
