@@ -53,7 +53,7 @@ def danhsach():
   for i in range(2):
     for j in range(5):
       check_sub.append(cols[j].checkbox(unisub[5*i+j],key=unisub[5*i+j]+'key'))
-  A_sub = np.stack((check_sub,unisub,['Part of day']*len(unisub))).T
+  A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
   
   st.write(A_sub)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
