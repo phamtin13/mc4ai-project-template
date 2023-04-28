@@ -58,7 +58,7 @@ def danhsach():
   
   needrop = []
   for i in A:
-    if i[0] is False:
+    if i[0] == False:
       needrop += np.where(dfmid[i[2]]==i[1])[0].tolist()
   st.write(np.unique(needrop))
   dfmid.drop(np.unique(needrop), inplace=True)
