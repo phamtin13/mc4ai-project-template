@@ -30,9 +30,14 @@ dfmid = df_change()
 #check_subject = np.array([st.checkbox(i) for i in np.unique(dfmid['Subject'])])
 #A = np.stack((check,np.unique(dfmid['Subject']))).T
 unisub = np.unique(dfmid['Subject'])
-for i in range(2):
-  for j in range(5):
-    for i in unisub:
-      st.checkbox(i)
-      unisub = unisub[1:]
-      break
+#for i in range(2):
+  #for j in range(5):
+    #for i in unisub:
+      #st.checkbox(i)
+      #unisub = unisub[1:]
+      #break
+      
+cols = unisub.copy()
+tuple(cols[:5]) = st.columns(4)
+with cols[1]:
+  st.write('Taylor')
