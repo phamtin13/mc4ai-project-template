@@ -19,8 +19,7 @@ st.write('Wow, you chose:',len(options))
 uniday = np.unique(dfmid['Part of day']).tolist()
 options = st.multiselect('Buổi', uniday)
 if len(options) == 1:
-  for i in options:
-    uniday.remove(i)
-    A_day = np.stack(([False]*len(uniday),uniday,['Part of day']*len(uniday))).T
+  uniday.remove(options[0])
+  A_day = np.stack(([False]*len(uniday),uniday,['Part of day']*len(uniday))).T
 else:
   A_day = np.stack(([True]*len(uniday),uniday,['Part of day']*len(uniday))).T
