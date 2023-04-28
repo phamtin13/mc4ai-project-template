@@ -29,7 +29,7 @@ st.write(A_day)
 dfmid = df_change()
 #check_subject = np.array([st.checkbox(i) for i in np.unique(dfmid['Subject'])])
 #A = np.stack((check,np.unique(dfmid['Subject']))).T
-unisub = np.unique(dfmid['Subject'])
+unisub = np.unique(dfmid['Subject']).tolist()
 #for i in range(2):
   #for j in range(5):
     #for i in unisub:
