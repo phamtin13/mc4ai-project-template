@@ -14,7 +14,7 @@ def danhsach():
     unigen = np.unique(dfmid['Gen'])
     check_gender = np.array([st.checkbox(i) for i in unigen])
     A_gender = np.stack((check_gender,unigen,np.array(['Gen']*len(unigen)))).T
-  
+  st.write(A_gender)
   with col2:
     grades = np.array(['Tất cả']+np.unique(dfmid['Grade']).tolist())
     radio = st.radio(label='Khối lớp', options=grades)
