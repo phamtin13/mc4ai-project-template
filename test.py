@@ -16,9 +16,9 @@ ts = ['Taylor Swift', 'Kanye West', 'Justin Bieber', 'Selena Gomez']
 options = st.multiselect('Your favorite celebrity', ts)
 st.write('Wow, you chose:',len(options))
 
-uniday = np.unique(dfmid['Part of day']).tolist()
+uniday = ['Sáng', 'Chiều']
 options = st.multiselect('Buổi', uniday)
-if len(options) == 1:
+if len(options) != 0 and len(options) != len(uniday):
   uniday.remove(options[0])
   A_day = np.stack(([False]*len(uniday),uniday,['Part of day']*len(uniday))).T
 else:
