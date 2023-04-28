@@ -34,7 +34,7 @@ def danhsach():
     else:
       uniroom.remove(option)
       A_room = np.stack(([False]*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
-  st.write(uniroom)
+  st.write(A_room)
     
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
