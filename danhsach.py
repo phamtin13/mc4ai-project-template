@@ -39,8 +39,12 @@ def danhsach():
     uniday = np.unique(dfmid['Part of day']).tolist()
     options = st.multiselect('Buổi', uniday)
     if len(options) != 0:
-      pass
-    
+      for i in options:
+        uniday.remove(i)
+      A_day = np.stack(([False]*len(uniday),uniday,['Part of day']*len(uniday))).T
+    else:
+      A_day = np.stack(([True]*len(uniday),uniday,['Part of day']*len(uniday))).T
+  st.write(A_day)
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
     
