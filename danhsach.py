@@ -19,7 +19,7 @@ def danhsach():
     grades = np.array(['Tất cả']+np.unique(dfmid['Grade']).tolist())
     radio = st.radio(label='Khối lớp', options=grades)
     if radio == 'Tất cả':
-      continue
+      pass
     else:
       grade_drop = np.unique(dfmid['Grade']).tolist().remove(radio)
   st.write(grade_drop)
