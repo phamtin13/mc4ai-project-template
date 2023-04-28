@@ -40,4 +40,4 @@ unisub = np.unique(dfmid['Subject'])
 unicols = unisub.copy()
 cols = st.columns(5)
 for i in range(5):
-  cols[i].checkbox(unicols[i],key='key')
+  cols[i].checkbox(unicols[i],key=unicols[i]+'key')
