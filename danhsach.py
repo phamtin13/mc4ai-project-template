@@ -22,7 +22,7 @@ def danhsach():
     if radio == 'Tất cả':
       pass
     else:
-      grade_drop = unigrade.remove(radio)
+      unigrade.remove(radio)
   st.write(unigrade)
     
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
