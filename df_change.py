@@ -23,7 +23,7 @@ def df_change():
   def grade(row):
     for i in range(10,13):
       if row[COLS[2]][:2] == str(i):
-        return 'Lớp' + str(i)
+        return 'Lớp ' + str(i)
   dfmid['Grade'] = dfmid.apply(grade, axis=1)
   
   subjects = [['Anh','CA'],
