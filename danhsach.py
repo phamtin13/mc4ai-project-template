@@ -58,7 +58,6 @@ def danhsach():
 
   needrop = []
   for i in A:
-    st.write(type(i[1]),type(i[2]))
     if i[0] == 'False':
       needrop += np.where(dfmid[str(i[2])]==str(i[1]))[0].tolist()
   
