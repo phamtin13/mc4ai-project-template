@@ -14,4 +14,4 @@ st.write(dfmid)
 
 ts = ['Taylor Swift', 'Kanye West', 'Justin Bieber', 'Selena Gomez']
 options = st.multiselect('Your favorite celebrity', ts)
-st.write('Wow, you chose:',options[0])
+st.write('Wow, you chose:',options[0],len(options))
