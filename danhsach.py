@@ -34,7 +34,10 @@ def danhsach():
     else:
       uniroom.remove(option)
       A_room = np.stack(([False]*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
-  st.write(A_room)
+  
+  #with col4:
+    #uniday = np.unique(dfmid['Part of day']).tolist()
+    #options = st.multiselect('Buổi', uniday)
     
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   st.write(dfmid)
