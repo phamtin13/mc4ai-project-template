@@ -5,8 +5,7 @@ from df_change import df_change
 dfmid = df_change()
 check = np.array([st.checkbox(i) for i in np.unique(dfmid['Subject'])])
 st.write(check)
-A = np.stack((check,np.unique(dfmid['Subject']))
-
+A = np.stack((check,np.unique(dfmid['Subject'])))
 st.write(A)
 #for i in A:
   #if i[0]:
