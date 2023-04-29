@@ -11,6 +11,8 @@ def phannhom():
   kmeans = KMeans(n_clusters=slider, n_init='auto')
   X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
   kmeans.fit(X)
-  st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = kmeans.labels_))
+  labels = kmeans.labels_
+  st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = labels))
+  st.write(labels)
 
 phannhom()
