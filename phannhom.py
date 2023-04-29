@@ -15,7 +15,7 @@ def phannhom():
   X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
   kmeans.fit(X)
   labels = kmeans.labels_
-  fig = go.Figure(data=[go.Surface(x=datas, y=datas, z=data)])
+  fig = go.Figure(data=[go.Surface(x=datas, y=datas, z=datas)])
   #st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = labels))
   for i in np.unique(labels):
     fig = go.Figure(data=[go.Scatter3d(x=dfmid['Homework'][labels==i], y=dfmid['Midterm Exam'][labels==i], z=dfmid['Final Exam'][labels==i])])
