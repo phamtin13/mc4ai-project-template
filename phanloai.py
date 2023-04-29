@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from df_change import df_change
+from sklearn.cluster import KMeans
 
 def phanloai():
   dfmid = df_change()
