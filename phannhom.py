@@ -3,6 +3,6 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 def phannhom():
-  slider = st.slider('Slider', 2, 5, 1)
+  slider = st.slider('Slider', 3, 5, 1)
 
 phannhom()
