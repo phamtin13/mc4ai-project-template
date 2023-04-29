@@ -15,7 +15,7 @@ def danhsach1():
     A_gender = np.stack((check_gender,unigen)).T
     for i in A_gender:
       if i[0] == True:
-        dfmid = dfmid.loc[dfmid['Gen']==i[1]]
+        dfmid = dfmid.iloc[dfmid['Gen']==i[1]]
 
   with col2:
     unigrade = np.unique(dfmid['Grade']).tolist()
