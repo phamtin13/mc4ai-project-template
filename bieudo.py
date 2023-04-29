@@ -3,7 +3,7 @@ import numpy as np
 import plotly.express as px
 from df_change import df_change
 
-def bieudo()
+def bieudo():
   dfmid = df_change()
   COLS = dfmid.columns.values.tolist().copy()
   COLS.remove('BONUS')
