@@ -18,6 +18,9 @@ def phannhom():
   kmeans.labels_ = np.array([str(i) for i in kmeans.labels_])
   df_need = dfmid.loc[kmeans.labels_==str(int(radio[-1])-1)]
   df_new = df_need[['NAME', 'CLASS', 'Homework', 'Midterm Exam', 'Final Exam', 'GPA']]
+  
+  new = df_new['GPA']
+  st.info(radio+': GPA cao nhất '+max(new)+', thấp nhất '+min(new)+', trung bình '+mean(new))
   st.write(df_new)
   
 phannhom()
