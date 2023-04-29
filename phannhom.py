@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 
 def phannhom():
   dfmid = df_change()
-  dfmid = dfmid.rename(columns={'S6' : 'Midterm Exam','S10' : 'Final Exam'}, inplace=True)
+  dfmid.rename(columns={'S6' : 'Midterm Exam','S10' : 'Final Exam'}, inplace=True)
   slider = st.slider('Số nhóm:', min_value = 2, max_value = 5, step = 1)
   kmeans = KMeans(n_clusters=slider, n_init='auto')
   X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
