@@ -8,9 +8,12 @@ dfmid = df_change()
 tab1, tab2 = st.tabs(["Số lượng học sinh", "Điểm"])
 
 with tab1:
-  def pie(df,a):
-    return px.pie(df, names=a)
+  nhanxet = np.array([['Giới tính','Gen','Nhìn chung học sinh Nam hứng thú với AI hơn học sinh Nữ.'],
+             ['Môn học','Subject','Khối chuyên Toán quan tâm đến AI nhiều nhất và khối chuyên Trung - Nhật ít quan tâm nhất.'],
+             ['Lớp Python','PYTHON-CLASS','Số học sinh ở 2 buổi và 2 phòng học gần bằng nhau, nên giờ học là hợp lý, đáp ứng được nhu cầu của tất cả học sinh.'],
+             ['Khối lớp','Grade','Số lượng học sinh lớp 10 tham gia khoá PY4AI là nhiều nhất và số lượng học sinh lớp 12 là ít nhất.']])
   
-  nhanxet = ['Gen','* Tín \
-                    *hưng']
-  st.write(nhanxet[1])
+  option = st.selectbox('Phân tích biểu đồ hình tròn theo:', nhanxet[:,0])
+  st.write(px.pie(dfmid, names = nhanxet[nhanxet[:,0]==option][1]))
+  st.success('Kết luận:', nhanxet[nhanxet[:,0]==option][2])
+  
