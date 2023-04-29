@@ -20,17 +20,21 @@ with tab1:
   st.success('Kết luận: '+nhanxet1[:,2][nhanxet1[:,0]==pies][0])
   
 with tab2:
-  tys = np.array([['Biểu đồ cột (histogram)',px.histogram,'PYTHON-CLASS','Gen'],
-                  ['Biểu đồ cột (histogram)',px.histogram,'Subject'],
-                  ['Biểu đồ hộp (box)',px.box,'PYTHON-CLASS','Gen'],
-                  ['Biểu đồ hộp (box)',px.box,'Subject']])
+  tys = np.array([['Biểu đồ cột (histogram)','PYTHON-CLASS','Gen'],
+                  ['Biểu đồ cột (histogram)','Subject'],
+                  ['Biểu đồ hộp (box)','PYTHON-CLASS','Gen'],
+                  ['Biểu đồ hộp (box)','Subject']])
   sessions = np.array(COLS[4:15])
   types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
   option = st.radio('Điểm từng session:', sessions, horizontal=True)
   for i in tys:
-    if i[0] == types:
+    if types == 'Biểu đồ cột (histogram)':
       if len(i) == 4:
-        st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=option))
+        st.write(px.histogram(dfmid, x = i[1], y = option, color = i[2]).update_layout(yaxis_title=option))
       else:
-        st.write(i[1](dfmid, x = i[2], y = option).update_layout(yaxis_title=option))
-                 
+        st.write(px.histogram(dfmid, x = i[1], y = option).update_layout(yaxis_title=option))
+    else:
+      if len(i) == 4:
+        st.write(px.histogram(dfmid, x = i[1], y = option, color = i[2]).update_layout(yaxis_title=option))
+      else:
+        st.write(px.histogram(dfmid, x = i[1], y = option).update_layout(yaxis_title=option))
