@@ -11,5 +11,6 @@ with tab1:
   def pie(df,a):
     return px.pie(df, names=a)
   
-  nhanxet = ['Gen','* Tín\n *hưng']
+  nhanxet = ['Gen','* Tín\ 
+                    *hưng']
   st.write(nhanxet[1])
