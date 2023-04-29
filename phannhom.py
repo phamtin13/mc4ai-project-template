@@ -20,7 +20,7 @@ def phannhom():
   df_new = df_need[['NAME', 'CLASS', 'Homework', 'Midterm Exam', 'Final Exam', 'GPA']]
   
   new = df_new['GPA']
-  st.write(radio+': GPA cao nhất',new.max(),', thấp nhất',new.min(),', trung bình',new.mean())
+  st.write(radio+': GPA cao nhất',new.max(),', thấp nhất',new.min(),', trung bình',np.round(new.mean(),1))
   st.write(df_new)
   
 phannhom()
