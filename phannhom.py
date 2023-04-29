@@ -14,13 +14,14 @@ def phannhom():
   st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = kmeans.labels_))
   
   labels = np.array(['Nhóm '+str(i+1) for i in np.unique(kmeans.labels_)])
-  radio = st.radio('Chọn nhóm:', labels, horizontal=True)
   kmeans.labels_ = np.array([str(i) for i in kmeans.labels_])
-  df_need = dfmid.loc[kmeans.labels_==str(int(radio[-1])-1)]
-  df_new = df_need[['NAME', 'CLASS', 'Homework', 'Midterm Exam', 'Final Exam', 'GPA']]
   
-  new = df_new['GPA']
-  st.write(radio+': GPA cao nhất',new.max(),', thấp nhất',new.min(),', trung bình',np.round(new.mean(),1))
-  st.write(df_new)
+  for j in labels:
+    df_need = dfmid.loc[kmeans.labels_==str(int(j[-1])-1)]
+    df_new = df_need[['NAME', 'CLASS', 'Homework', 'Midterm Exam', 'Final Exam', 'GPA']]
+  
+    new = df_new['GPA']
+    st.write(j+': GPA cao nhất',new.max(),', thấp nhất',new.min(),', trung bình',np.round(new.mean(),1))
+    st.write(df_new)
   
 phannhom()
