@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+/home/appuser/venv/bin/python -m pip install --upgrade pip
 import plotly.express as px
 from df_change import df_change
 
