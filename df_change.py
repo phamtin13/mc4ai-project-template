@@ -59,6 +59,10 @@ def df_change():
       return 'Sáng'
   dfmid['Part of day'] = dfmid.apply(partofday, axis=1)
   
+  def homework(row):
+    return np.round(np.mean(row[COLS[4:9]+COLS[10:13]]),1)
+  dfmid['Homework'] = dfmid.apply(homework, axis=1)
+  
   return dfmid
   
 df_change()
