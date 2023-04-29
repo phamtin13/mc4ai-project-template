@@ -18,7 +18,7 @@ def phannhom():
   fig = go.Figure(data=[go.Surface(x=datas, y=datas, z=data)])
   #st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = labels))
   for i in np.unique(labels):
-    fig = go.Figure(data=[go.Surface(x=dfmid['Homework'][labels==i], y=dfmid['Midterm Exam'][labels==i], z=dfmid['Final Exam'][labels==i])])
+    fig = go.Figure(data=[go.Scatter3d(x=dfmid['Homework'][labels==i], y=dfmid['Midterm Exam'][labels==i], z=dfmid['Final Exam'][labels==i])])
   st.write(fig)
   
 phannhom()
