@@ -30,5 +30,5 @@ with tab2:
   for i in tys:
     if i[0] == types:
       st.write('Phân tích theo '+i[4]+':')
-      st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=option))
+      st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title='Tổng điểm '+option))
       
