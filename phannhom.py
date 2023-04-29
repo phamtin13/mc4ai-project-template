@@ -15,6 +15,7 @@ def phannhom():
   
   labels = np.array(['Nhóm '+str(i+1) for i in np.unique(kmeans.labels_)])
   radio = st.radio('Chọn nhóm:', labels, horizontal=True)
+  kmeans.labels_ = np.array([str(i) for i in kmeans.labels_])
   df_need = dfmid.loc[kmeans.labels_==str(int(radio[-1])-1)]
   df_new = df_need[['NAME', 'CLASS', 'Homework', 'Midterm Exam', 'Final Exam', 'GPA']]
   st.write(df_new)
