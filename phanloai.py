@@ -17,6 +17,7 @@ def phanloai():
     xx, yy = np.meshgrid(datas, datas)
     xy = np.c_[xx.ravel(), yy.ravel()]
     z = kmeans.predict(xy)
+    z = z.reshape(xx.shape)
     st.write(fig = go.Figure(data=[go.Scatter3d(x=X[:,0], y=X[:,1], z=X[:,2], mode='markers'),
                       go.Surface(x=datas, y=datas, z=z)]))
   
