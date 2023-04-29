@@ -10,10 +10,8 @@ def phannhom():
   slider = st.slider('Số nhóm:', min_value = 2, max_value = 5, step = 1)
   kmeans = KMeans(n_clusters=slider, n_init='auto')
   X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
-  #X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['GPA'])).T
   kmeans.fit(X)
   st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = kmeans.labels_))
-  #st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'GPA', color = kmeans.labels_))
   
   labels = np.array(['Nhóm '+str(i+1) for i in np.unique(kmeans.labels_)])
   kmeans.labels_ = np.array([str(i) for i in kmeans.labels_])
