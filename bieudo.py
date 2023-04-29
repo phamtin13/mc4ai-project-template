@@ -20,5 +20,8 @@ with tab1:
   st.success('Kết luận: '+nhanxet1[:,2][nhanxet1[:,0]==pies][0])
   
 with tab2:
-  types = st.radio('Phân tích điểm theo dạng:', ('Biểu đồ cột (histogram)','Biểu đồ hộp (box)'), horizontal=True)
-  option = st.radio('Điểm từng session:', COLS[4:15], horizontal=True)
+  tys = np.array([['Biểu đồ cột (histogram)',px.histogram],
+                  ['Biểu đồ hộp (box)',px.box]])
+  sessions = np.array(COLS[4:15])
+  types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
+  option = st.radio('Điểm từng session:', sessions, horizontal=True)
