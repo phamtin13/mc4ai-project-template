@@ -14,6 +14,6 @@ def phannhom():
   st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = kmeans.labels_))
   
   labels = np.array(['Nhóm '+str(i) for i in np.unique(kmeans.labels_)])
-  st.write(lables)
+  st.write(labels)
   
 phannhom()
