@@ -29,6 +29,6 @@ with tab2:
   option = st.radio('Điểm từng session:', sessions, horizontal=True)
   for i in tys:
     if i[0] == types:
-      st.write('Phân tích theo '+i[4]+':')
+      st.subheader('Phân tích theo '+i[4]+':')
       st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=i[5]+option))
       
