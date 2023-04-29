@@ -13,7 +13,7 @@ def phannhom():
   kmeans.fit(X)
   st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = kmeans.labels_))
   
-  labels = np.array(['Nhóm '+str(i) for i in np.unique(kmeans.labels_)])
+  labels = np.array(['Nhóm '+str(i+1) for i in np.unique(kmeans.labels_)])
   st.write(labels)
   
 phannhom()
