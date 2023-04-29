@@ -1,8 +1,8 @@
 import streamlit as st
 import numpy as np
-import plotly.graph_objects as go
 #import plotly.express as px
 import plotly.graph_objects as go
+from go import Scatter3d
 from df_change import df_change
 from sklearn.cluster import KMeans
 
