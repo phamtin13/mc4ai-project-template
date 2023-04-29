@@ -9,7 +9,7 @@ def phannhom():
   dfmid = dfmid.rename(columns={'S6' : 'Midterm Exam','S10' : 'Final Exam'}, inplace=True)
   slider = st.slider('Số nhóm:', min_value = 2, max_value = 5, step = 1)
   kmeans = KMeans(n_clusters=slider, n_init='auto')
-  X = np.stack((dfmid['Homework'],dfmid['S6'],dfmid['S10'])).T
+  X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
   kmeans.fit(X)
   st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = kmeans.labels_, mode = 'markers'))
 
