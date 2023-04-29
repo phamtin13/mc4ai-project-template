@@ -69,7 +69,7 @@ def danhsach():
   if len(dfmid) == 0:
     r = 0
   else:
-    r = (mgai/len(dfmid))*100
+    r = np.round((mgai/len(dfmid))*100,1)
   st.write('Phần trăm số học sinh đăng kí khoá MC4AI:',r,'%')
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   
