@@ -14,7 +14,9 @@ def phannhom():
   st.write(px.scatter_3d(dfmid, x = 'Homework', y = 'Midterm Exam', z = 'Final Exam', color = kmeans.labels_))
   
   labels = np.array(['Nhóm '+str(i+1) for i in np.unique(kmeans.labels_)])
-  for i in labels:
+  radio = st.radio('Chọn nhóm:', labels, horizontal=True)
+  st.write(radio)
+    
     
   
 phannhom()
