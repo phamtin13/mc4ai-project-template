@@ -66,6 +66,11 @@ def danhsach():
   st.write('GPA: cao nhất',dfmid['GPA'].max(),', thấp nhất',dfmid['GPA'].max(),', trung bình',np.round(dfmid['GPA'].mean(),1))
   mgai = len(dfmid[dfmid['REG-MC4AI']=='Y'])
   st.write('Số học sinh đăng kí khoá MC4AI:',mgai)
+  if len(dfmid) == 0:
+    r = 0
+  else:
+    r = (mgai/len(dfmid))*100
+  st.write('Phần trăm số học sinh đăng kí khoá MC4AI:',r,'%')
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   
   st.write(dfmid)
