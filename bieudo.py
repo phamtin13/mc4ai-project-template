@@ -14,7 +14,7 @@ with tab1:
              ['Khối lớp','Grade','Số lượng học sinh lớp 10 tham gia khoá PY4AI là nhiều nhất và số lượng học sinh lớp 12 là ít nhất.']])
   
   option = st.radio('Phân tích biểu đồ hình tròn theo:', nhanxet[:,0], horizontal=True)
-  st.write(nhanxet[nhanxet[:,0]==option])
+  st.write(nhanxet[:,1][nhanxet[:,0]==option])
   #st.write(px.pie(dfmid, names = nhanxet[nhanxet[:,0]==option][1]))
   #st.success('Kết luận:', nhanxet[nhanxet[:,0]==option][2])
   
