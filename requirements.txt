@@ -2,4 +2,4 @@ numpy
 pandas
 streamlit
 plotly.express
-from sklearn.cluster import KMeans
+scikit-learn
