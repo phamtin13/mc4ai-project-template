@@ -22,7 +22,7 @@ def nhanxet(option,types):
     nhanxet = []
     for i in np.unique(B[:,1]):
       B1 = B[B[:,1]==i]
-      nhanxet.append('Đối với học sinh '+i+': Lớp '+B1[:,2][0]+' có điểm tổng nhiều nhất ('+B1[:,0][0]+' điểm) và lớp '+B1[:,2][1]+' có điểm tổng ít nhất ('+B1[:,0][1]+' điểm).')
+      nhanxet.append('Đối với học sinh '+i+': Lớp '+B1[:,2][0]+' có điểm tổng nhiều nhất ('+np.round(B1[:,0][0],1)+' điểm) và lớp '+B1[:,2][1]+' có điểm tổng ít nhất ('+np.round(B1[:,0][1],1)+' điểm).')
     
     C = []
     D = []
