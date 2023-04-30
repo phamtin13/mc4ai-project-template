@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 from df_change import df_change
 
-def nhanxet(option):
+def nhanxet(option,types):
   dfmid = df_change()
   COLS = dfmid.columns.values.tolist().copy()
   if types == 'Biểu đồ cột (histogram)':
