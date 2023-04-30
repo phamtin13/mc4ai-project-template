@@ -39,6 +39,6 @@ def bieudo():
       if tys[i][0] == types:
         st.subheader('Phân tích theo '+tys[i][4]+':')
         st.write(tys[i][1](dfmid, x = tys[i][2], y = option, color = tys[i][3]).update_layout(yaxis_title=tys[i][5]+option))
-        st.info('Kết luận: Nhìn chung, '+nhanxet2[i])
+        st.info('Kết luận: Nhìn chung, '+str(nhanxet2[i]))
         
 bieudo()
