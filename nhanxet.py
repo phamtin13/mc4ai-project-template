@@ -23,5 +23,10 @@ def nhanxet(option,types):
     for i in np.unique(B[:,1]):
       B1 = B[B[:,1]==i]
       nhanxet.append('Đối với học sinh '+i+': Lớp '+B1[:,2][0]+' có điểm tổng nhiều nhất ('+B1[:,0][0]+' điểm) và lớp '+B1[:,2][1]+' có điểm tổng ít nhất ('+B1[:,0][1]+' điểm).')
+    
+    C = []
+    D = []
+    for i in np.unique(dfmid['Subject']):
+      C.append([dfmid[option][dfmid['Subject']==i].sum(),i])
       
   return nhanxet
