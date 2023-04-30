@@ -29,13 +29,13 @@ def bieudo():
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
     option = st.radio('Điểm từng session:', sessions, horizontal=True)
-    nhanxet = nhanxet(option)
+    nhanxet2 = nhanxet(option)
     
     for i in tys:
       if i[0] == types:
         st.subheader('Phân tích theo '+i[4]+':')
         st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=i[5]+option))
-        for j in nhanxet:
+        for j in nhanxet2:
           st.write(j)
         
 bieudo()
