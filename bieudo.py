@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import plotly.express as px
 from df_change import df_change
-#from nhanxet import nhanxet
 
 def bieudo():
   dfmid = df_change()
@@ -29,7 +28,6 @@ def bieudo():
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
     option = st.radio('Điểm từng session:', sessions, horizontal=True)
-    #nhanxet2 = nhanxet(option,types)
     
     nhanxet2 = np.array([['tổng điểm của học sinh nam cao hơn của học sinh nữ; còn tổng điểm của 2 lớp học phòng A114 cao hơn của 2 lớp học phòng A115.'],
                          ['tổng điểm của lớp thường và khối chuyên Toán là cao nhất; còn của khối chuyên Trung - Nhật là thấp nhất.'],
