@@ -31,10 +31,10 @@ def bieudo():
     option = st.radio('Điểm từng session:', sessions, horizontal=True)
     #nhanxet2 = nhanxet(option,types)
     
-    nhanxet2 = np.array([['tổng điểm của học sinh nam cao hơn của học sinh nữ; còn tổng điểm của 2 lớp học phòng A114 cao hơn của 2 lớp học phòng A115'],
-                         ['tổng điểm của lớp thường và khối chuyên Toán là cao nhất; còn của khối chuyên Trung - Nhật là thấp nhất],
-                         ['các bạn nam học phòng A114 buổi sáng đa số làm tốt so với các phòng còn lại; còn các bạn nữ học 1 trong 2 phòng vào buổi chiều đa số làm bài tốt'],
-                         ['khối chuyên Tin làm bài tốt nhất; còn khối chuyên Trung - Nhật làm chưa được tốt so với những khối còn lại']])
+    nhanxet2 = np.array([['tổng điểm của học sinh nam cao hơn của học sinh nữ; còn tổng điểm của 2 lớp học phòng A114 cao hơn của 2 lớp học phòng A115.'],
+                         ['tổng điểm của lớp thường và khối chuyên Toán là cao nhất; còn của khối chuyên Trung - Nhật là thấp nhất.'],
+                         ['các bạn nam học phòng A114 buổi sáng đa số làm tốt so với các phòng còn lại; còn các bạn nữ học 1 trong 2 phòng vào buổi chiều đa số làm bài tốt.'],
+                         ['khối chuyên Tin làm bài tốt nhất; còn khối chuyên Trung - Nhật làm chưa được tốt so với những khối còn lại.']])
     for i in tys:
       if i[0] == types:
         st.subheader('Phân tích theo '+i[4]+':')
