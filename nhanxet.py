@@ -30,5 +30,13 @@ def nhanxet(option,types):
     D = []
     for i in np.unique(dfmid['Subject']):
       C.append([dfmid[option][dfmid['Subject']==i].sum(),i])
-      
+    C = np.array(C)
+    c = C[:,0].astype(float)
+    D.append(C[np.argmax(c)])
+    D.append(C[np.argmin(c)])
+    D = np.array(D)
+    d = D[:,0].astype(float)
+    nhanxet.append('Khối '+D[:,1][0]+' có điểm tổng cao nhất ('+str(np.round(d[0],1))+' điểm) và khối '+D[:,1][1]+' có điểm tổng thấp nhất ('+str(np.round(d[1],1))+' điểm).')
+    
+    
   return nhanxet
