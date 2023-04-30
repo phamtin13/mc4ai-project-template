@@ -63,6 +63,13 @@ def df_change():
     return np.round(np.mean(row[COLS[4:9]+COLS[10:13]]),1)
   dfmid['Homework'] = dfmid.apply(homework, axis=1)
   
+  def failorpass(row):
+    if row['GPA'] >= 6.0:
+      return 'Đậu'
+    else:
+      return 'Rớt'
+  dfmid['Fail or Pass'] = dfmid.apply(failorpass, axis=1)
+  
   return dfmid
   
 df_change()
