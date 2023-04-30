@@ -25,5 +25,3 @@ def nhanxet(option):
       nhanxet.append('Đối với học sinh '+i+': Lớp '+B1[:,2][0]+' có điểm tổng ít nhất và lớp '+B1[:,2][1]+' có điểm tổng ít nhất.')
       
   return nhanxet
-
-nhanxet()
