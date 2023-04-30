@@ -35,10 +35,10 @@ def bieudo():
                          ['tổng điểm của lớp thường và khối chuyên Toán là cao nhất; còn của khối chuyên Trung - Nhật là thấp nhất.'],
                          ['các bạn nam học phòng A114 buổi sáng đa số làm tốt so với các phòng còn lại; còn các bạn nữ học 1 trong 2 phòng vào buổi chiều đa số làm bài tốt.'],
                          ['khối chuyên Tin làm bài tốt nhất; còn khối chuyên Trung - Nhật làm chưa được tốt so với những khối còn lại.']])
-    for i in tys:
-      if i[0] == types:
-        st.subheader('Phân tích theo '+i[4]+':')
-        st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=i[5]+option))
-        st.info('Kết luận: Nhìn chung, '+nhanxet2[tys==i])
+    for i in range(len(tys)):
+      if tys[i][0] == types:
+        st.subheader('Phân tích theo '+tys[i][4]+':')
+        st.write(tys[i][1](dfmid, x = tys[i][2], y = option, color = tys[i][3]).update_layout(yaxis_title=tys[i][5]+option))
+        st.info('Kết luận: Nhìn chung, '+nhanxet2[i])
         
 bieudo()
