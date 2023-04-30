@@ -11,7 +11,7 @@ def danhsach():
   with col1:
     st.write('Giới tính:')
     unigen = np.unique(dfmid['Gen'])
-    check_gender = [str(st.checkbox(i,value=True,key=i)) for i in unigen]
+    check_gender = [str(st.checkbox(i,value=True,key=i+' key')) for i in unigen]
     A_gender = np.stack((check_gender,unigen,['Gen']*len(unigen))).T
 
   with col2:
