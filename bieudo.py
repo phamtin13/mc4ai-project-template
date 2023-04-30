@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import plotly.express as px
 from df_change import df_change
-from nhanxet import nhanxet
+#from nhanxet import nhanxet
 
 def bieudo():
   dfmid = df_change()
@@ -29,17 +29,15 @@ def bieudo():
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
     option = st.radio('Điểm từng session:', sessions, horizontal=True)
-    nhanxet2 = nhanxet(option,types)
+    #nhanxet2 = nhanxet(option,types)
+    
+    #nhanxet2 = np.array([['Nhìn chung, học sinh nam làm tốt hơn học sinh nữ và 2 lớp học phòng A114 làm tốt hơn 2 lớp học phòng A115'],
+                #[
     
     for i in tys:
       if i[0] == types:
         st.subheader('Phân tích theo '+i[4]+':')
         st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=i[5]+option))
-        if types == 'Biểu đồ cột (histogram)':
-          if i[3] == 'Gen':
-            for j in nhanxet2[:2]:
-              st.info(j)
-          else:
-            st.info(nhanxet2[2])
+        
         
 bieudo()
