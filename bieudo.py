@@ -9,7 +9,7 @@ def bieudo():
   COLS = dfmid.columns.values.tolist().copy()
   COLS.remove('BONUS')
 
-  tab1, tab2 = st.tabs(["Số lượng học sinh", "Điểm"])
+  tab1, tab2 = st.tabs(["Số lượng học sinh", "Điểm số"])
 
   with tab1:
     nhanxet1 = np.array([['Giới tính','Gen','Nhìn chung học sinh Nam hứng thú với AI hơn học sinh Nữ.'],
