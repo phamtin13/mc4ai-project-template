@@ -9,7 +9,7 @@ def danhsach():
   COLS_mid = dfmid.columns.values.tolist().copy()
   
   with col1:
-    st.write('Giới tính')
+    st.write('Giới tính:')
     unigen = np.unique(dfmid['Gen'])
     check_gender = [str(st.checkbox(i)) for i in unigen]
     A_gender = np.stack((check_gender,unigen,['Gen']*len(unigen))).T
@@ -17,7 +17,7 @@ def danhsach():
   with col2:
     unigrade = np.unique(dfmid['Grade']).tolist()
     grades = np.array(['Tất cả']+ unigrade)
-    radio = st.radio(label='Khối lớp', options=grades)
+    radio = st.radio(label='Khối lớp:', options=grades)
     if radio == 'Tất cả':
       A_grade = np.stack((['True']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
     else:
@@ -27,7 +27,7 @@ def danhsach():
   with col3:
     uniroom = np.unique(dfmid['Classroom']).tolist()
     rooms = np.array(['Tất cả']+ uniroom)
-    option = st.selectbox('Phòng',rooms)
+    option = st.selectbox('Phòng:',rooms)
     if option == 'Tất cả':
       A_room = np.stack((['True']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
     else:
@@ -36,14 +36,15 @@ def danhsach():
   
   with col4:
     uniday = np.unique(dfmid['Part of day'])[::-1].tolist()
-    options = st.multiselect('Buổi', uniday)
+    options = st.multiselect('Buổi:', uniday)
     if len(options) != 0 and len(options) != len(uniday):
       for i in options:
         uniday.remove(i)
       A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
     else:
       A_day = np.stack((['True']*len(uniday),uniday,['Part of day']*len(uniday))).T
-      
+  
+  st.write('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
   unisub.remove('Khác')
   unisub.append('Khác')
