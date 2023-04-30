@@ -39,5 +39,7 @@ def bieudo():
           if i[3] == 'Gen':
             for j in nhanxet2[:2]:
               st.info(j)
+          else:
+            st.info(nhanxet2[2])
         
 bieudo()
