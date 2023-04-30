@@ -36,6 +36,6 @@ def bieudo():
         st.subheader('Phân tích theo '+i[4]+':')
         st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=i[5]+option))
         for j in nhanxet2:
-          st.success(j)
+          st.info(j)
         
 bieudo()
