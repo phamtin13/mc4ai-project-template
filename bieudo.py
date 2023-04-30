@@ -35,7 +35,9 @@ def bieudo():
       if i[0] == types:
         st.subheader('Phân tích theo '+i[4]+':')
         st.write(i[1](dfmid, x = i[2], y = option, color = i[3]).update_layout(yaxis_title=i[5]+option))
-        for j in nhanxet2:
-          st.info(j)
+        if types == 'Biểu đồ cột (histogram)':
+          if i[3] == 'Gen':
+            for j in nhanxet2[:2]:
+              st.info(j)
         
 bieudo()
