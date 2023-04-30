@@ -26,17 +26,17 @@ def df_change():
         return 'Lớp ' + str(i)
   dfmid['Grade'] = dfmid.apply(grade, axis=1)
   
-  subjects = [['Chuyên Anh','CA'],
-             ['Chuyên Hoá','CH'],
-             ['Chuyên Lý', 'CL'],
-             ['Chuyên Sinh','CS'],
-             ['Chuyên Toán','CT'],
-             ['Chuyên Tin','CTIN'],
-             ['Chuyên Trung - Nhật','CTRN'],
-             ['Chuyên Văn', 'CV'],
+  subjects = [['Anh','CA'],
+             ['Hoá','CH'],
+             ['Lý', 'CL'],
+             ['Sinh','CS'],
+             ['Toán','CT'],
+             ['Tin','CTIN'],
+             ['Trung - Nhật','CTRN'],
+             ['Văn', 'CV'],
              ['Tích hợp / Song ngữ', 'TH','SN'],
              ['Lớp thường', 'A', 'B'],
-             ['Chuyên Sử - Địa', 'CSD']]
+             ['Sử - Địa', 'CSD']]
   def subject(row):
     r = ''.join(re.findall('\D', row[COLS[2]]))
     for i in subjects:
