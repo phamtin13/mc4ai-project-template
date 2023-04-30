@@ -29,7 +29,7 @@ def bieudo():
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
     option = st.radio('Điểm từng session:', sessions, horizontal=True)
-    nhanxet2 = nhanxet(option)
+    nhanxet2 = nhanxet(option,types)
     
     for i in tys:
       if i[0] == types:
