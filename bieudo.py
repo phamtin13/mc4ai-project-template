@@ -24,8 +24,8 @@ def bieudo():
   with tab2:
     tys = np.array([['Biểu đồ cột (histogram)',px.histogram,'PYTHON-CLASS','Gen','lớp Python và giới tính','Tổng điểm '],
                     ['Biểu đồ cột (histogram)',px.histogram,'Subject',None,'môn học chính khoá','Tổng điểm '],
-                    ['Biểu đồ hộp (box)',px.box,'PYTHON-CLASS','Gen','lớp Python và giới tính',''],
-                    ['Biểu đồ hộp (box)',px.box,'Subject',None,'môn học chính khoá','']])
+                    ['Biểu đồ hộp (box)',px.box,'PYTHON-CLASS','Gen','lớp Python và giới tính','Điểm'],
+                    ['Biểu đồ hộp (box)',px.box,'Subject',None,'môn học chính khoá','Điểm']])
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
     option = st.radio('Điểm từng session:', sessions, horizontal=True)
