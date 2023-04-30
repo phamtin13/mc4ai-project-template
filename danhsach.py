@@ -11,7 +11,7 @@ def danhsach():
   with col1:
     st.write('Giới tính:')
     unigen = np.unique(dfmid['Gen'])
-    check_gender = [str(st.checkbox(i,value=True,key=str(unigen[i]))) for i in unigen]
+    check_gender = [str(st.checkbox(i,value=True,key=i+' key'))) for i in unigen]
     A_gender = np.stack((check_gender,unigen,['Gen']*len(unigen))).T
 
   with col2:
@@ -52,7 +52,7 @@ def danhsach():
   cols = st.columns(5)
   for i in range(2):
     for j in range(5):
-      check_sub.append(str(cols[j].checkbox(unisub[5*i+j],value=True,key=str(unisub[5*i+j]))))
+      check_sub.append(str(cols[j].checkbox(unisub[5*i+j],value=True,key=str(unisub[5*i+j])+' key')))
   A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
 
   A = np.concatenate((A_gender, A_grade, A_room, A_day, A_sub))
