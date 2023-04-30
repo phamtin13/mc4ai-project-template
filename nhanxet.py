@@ -37,6 +37,5 @@ def nhanxet(option,types):
     D = np.array(D)
     d = D[:,0].astype(float)
     nhanxet.append('Khối '+D[:,1][0]+' có điểm tổng cao nhất ('+str(np.round(d[0],1))+' điểm) và khối '+D[:,1][1]+' có điểm tổng thấp nhất ('+str(np.round(d[1],1))+' điểm).')
-    
-    
-  return nhanxet
+
+    return nhanxet
