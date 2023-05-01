@@ -21,6 +21,7 @@ def phanloai():
   X = np.array(dfmid[A[A[:,0]=='True',1]])
   y = np.array(dfmid['Fail or Pass'])
   choice = A[A[:,0]=='True',1]
+  model = LogisticRegression()
   
   if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng để phân tích xem điểm số phải nằm trong khoảng nào mới có cơ hội đậu khoá học (GPA phải tối thiểu là 6 điểm).')
@@ -29,7 +30,6 @@ def phanloai():
     st.info('Bạn đã chọn: '+choice[0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
   elif len(A[A[:,0]=='True']) == 2:
-    model = LogisticRegression()
     model.fit(X, y)
     weights = model.coef_[0]
     bias = model.intercept_[0]
@@ -47,18 +47,25 @@ def phanloai():
     st.success('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
    
   else:
-    st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
-  
-  #if option == '3 đặc trưng':
-    #X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
-    #kmeans = KMeans(n_clusters=2, n_init='auto')
-    #kmeans.fit(X)
-    #datas = np.linspace(0, 10, 100)
-    #xx, yy = np.meshgrid(datas, datas)
-    #xy = np.c_[xx.ravel(), yy.ravel()]
-    #z = kmeans.predict(xy)
-    #z = z.reshape(xx.shape)
-    #st.write(fig = go.Figure(data=[go.Scatter3d(x=X[:,0], y=X[:,1], z=X[:,2], mode='markers'),
-                      #go.Surface(x=datas, y=datas, z=z)]))
+    model.fit(X, y)
+    weights = model.coef_[0]
+    bias = model.intercept_[0]
+    w1, w2,w3 = weights
+    
+    data = []
+    for i in np.unique(y):
+      data.append(go.Scatter3d(x=X[y==i,0], y=X[y==i,1], z=X[y==i,2], mode='markers',name = i))
+    x = np.linspace(0, 10, 100)
+    y = np.linspace(0, 10, 100)
+
+    xx, yy = np.meshgrid(x, y)
+    xy = np.c_[xx.ravel(), yy.ravel()]  
+    z = -(w1*xy[:,0] + w2*xy[:,1]+bias)/w3
+    z = z.reshape(xx.shape)
+    data.append(go.Surface(x=x, y=y, z=z))
+    fig = go.Figure(data=data)
+    fig.update_layout(showlegend=True,scene = dict(xaxis = dict(title=choice[0]),yaxis = dict(title=choice[1]),zaxis = dict(title=choice[2])))
+    st.pyplot(fig)
+    st.success('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
   
 phanloai()
