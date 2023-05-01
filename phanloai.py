@@ -21,13 +21,13 @@ def phanloai():
   st.write(A[A[:,0]=='True'])
   st.write(len(A[A[:,0]=='True']))
   
-  if len(A[np.where(A[:,0]==True)]) == 0:
+  if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn.')
     
-  elif len(A[np.where(A[:,0]==True)]) == 1:
+  elif len(A[A[:,0]=='True']) == 1:
     st.info('Bạn đã chọn: '+A[A[:,0]==True,1]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
-  elif len(A[np.where(A[:,0]==True)]) > 3:
+  elif len(A[A[:,0]=='True']) > 3:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
    
   else:
