@@ -64,7 +64,7 @@ def danhsach():
   
   dfmid.drop(np.unique(needrop), inplace=True)
   st.write('Số học sinh:',len(dfmid),'('+str(len(dfmid[dfmid['Gen']=='Nam']))+' nam, '+str(len(dfmid[dfmid['Gen']=='Nữ']))+' nữ)')
-  st.write('GPA: cao nhất',dfmid['GPA'].max(),', thấp nhất',dfmid['GPA'].max(),', trung bình',np.round(dfmid['GPA'].mean(),1))
+  st.write('GPA: cao nhất',dfmid['GPA'].max(),', thấp nhất',dfmid['GPA'].min(),', trung bình',np.round(dfmid['GPA'].mean(),1))
   pyai = len(dfmid[dfmid['Fail or Pass']=='Đậu'])
   mgai = len(dfmid[dfmid['REG-MC4AI']=='Y'])
   st.write('Số học sinh đậu khoá PY4AI (GPA tối thiểu phải là 6.0 điểm):',pyai)
