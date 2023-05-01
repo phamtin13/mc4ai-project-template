@@ -8,20 +8,18 @@ import plotly.graph_objects as go
 
 def phanloai():
   dfmid = df_change()
-  dfmid.rename(columns={'S6' : 'Midterm Exam','S10' : 'Final Exam'}, inplace=True)
+  dfmid.rename(columns={'Homework': 'Điểm bài tập trung bình','S6' : 'Midterm Exam','S10' : 'Final Exam'}, inplace=True)
   COLS = dfmid.columns.values.tolist().copy()
   COLS.remove('BONUS')
-  options = COLS[4:14]
+  options = np.array(['Điểm bài tập trung bình','Midterm Exam','Final Exam'])
   st.write('Chọn 2 hoặc 3 đặc trưng bạn muốn:')
   check = []
-  cols = st.columns(5)
-  for i in range(2):
-    for j in range(5):
-      check.append(str(cols[j].checkbox(options[5*i+j],key=str(options[5*i+j])+' key')))
+  cols = st.columns(3)
+  for i in range(3):
+    check.append(str(cols[i].checkbox(options[i],key=str(options[i])+' key')))
   A = np.stack((check,options)).T
-  X = dfmid[A[A[:,0]=='True',1]]
-  y = dfmid['Fail or Pass']
-  st.write(X)
+  X = np.array(dfmid[A[A[:,0]=='True',1]])
+  y = np.array(dfmid['Fail or Pass'])
   
   if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn.')
@@ -38,8 +36,9 @@ def phanloai():
     
     for i in np.unique(dfmid['Fail or Pass']):
       st.write(plt.scatter(X[y==i,0],X[y==i,1]))
-    #plt.legend(np.unique(dfmid['Fail or Pass']))
-    #st.write(plt.plot(x,-(w1*x+bias)/w2))
+    plt.legend(np.unique(dfmid['Fail or Pass']))
+    x = np.array([0,10])
+    st.write(plt.plot(x,-(w1*x+bias)/w2))
    
   else:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
