@@ -18,7 +18,7 @@ def phanloai():
     for j in range(5):
       check.append(str(cols[j].checkbox(options[5*i+j],key=str(options[5*i+j])+' key')))
   A = np.stack((check,options)).T
-  X = A[A[:,0]=='True',1]
+  X = dfmid[A[A[:,0]=='True',1]]
   st.write(X)
   
   if len(A[A[:,0]=='True']) == 0:
