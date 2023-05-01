@@ -18,7 +18,6 @@ def phanloai():
       check.append(str(cols[j].checkbox(options[5*i+j],key=str(options[5*i+j])+' key')))
   A_check = np.stack((check,options)).T
   st.write(A_check)
-
   
   #if option == '3 đặc trưng':
     #X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
