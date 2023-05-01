@@ -12,7 +12,7 @@ def phanloai():
   COLS = dfmid.columns.values.tolist().copy()
   COLS.remove('BONUS')
   options = np.array(['Điểm bài tập trung bình','Midterm Exam','Final Exam'])
-  st.write('Chọn 2 hoặc 3 đặc trưng bạn muốn:')
+  st.subheader('Chọn 2 hoặc 3 đặc trưng bạn muốn:')
   check = []
   cols = st.columns(3)
   for i in range(3):
@@ -22,7 +22,7 @@ def phanloai():
   y = np.array(dfmid['Fail or Pass'])
   
   if len(A[A[:,0]=='True']) == 0:
-    st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn.')
+    st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn để phân tích.')
     
   elif len(A[A[:,0]=='True']) == 1:
     st.info('Bạn đã chọn: '+A[A[:,0]=='True',1][0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
