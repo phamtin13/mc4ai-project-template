@@ -18,13 +18,13 @@ def phanloai():
       check.append(str(cols[j].checkbox(options[5*i+j],key=str(options[5*i+j])+' key')))
   A = np.stack((check,options)).T
   st.write(A)
-  st.write(A[A[:,0]==True,1])
+  st.write(A[A[:,0]=='True',1])
   
   if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn.')
     
   elif len(A[A[:,0]=='True']) == 1:
-    st.info('Bạn đã chọn: '+A[A[:,0]==True,1]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
+    st.info('Bạn đã chọn: '+A[A[:,0]=='True',1]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
   elif len(A[A[:,0]=='True']) > 3:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
