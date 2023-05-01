@@ -36,9 +36,9 @@ def phanloai():
     
     x = np.array([0,10])
     fig = plt.plot(x,-(w1*x+bias)/w2)
-    for i in np.unique(dfmid['Fail or Pass']):
-      plt.scatter(X[y==i,0],X[y==i,1]))
-    plt.legend(np.unique(dfmid['Fail or Pass']))
+    for i in np.unique(y):
+      plt.scatter(X[y==i,0],X[y==i,1])
+    plt.legend(np.unique(y))
     st.pyplot(fig)
    
   else:
