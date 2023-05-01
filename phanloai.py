@@ -44,7 +44,7 @@ def phanloai():
     plt.plot(x,-(w1*x+bias)/w2)
     plt.legend(np.unique(y))
     st.pyplot(fig)
-    st.success('Score: '+str(np.round(model.score(X, y),2)))
+    st.success('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
    
   else:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
