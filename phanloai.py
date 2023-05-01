@@ -36,8 +36,8 @@ def phanloai():
     bias = model.intercept_[0]
     w1, w2 = weights
     
-    #for i in np.unique(dfmid['Fail or Pass']):
-      #st.write(plt.scatter(X[y==i,0],X[y==i,1]))
+    for i in np.unique(dfmid['Fail or Pass']):
+      st.write(plt.scatter(X[y==i,0],X[y==i,1]))
     #plt.legend(np.unique(dfmid['Fail or Pass']))
     #st.write(plt.plot(x,-(w1*x+bias)/w2))
    
