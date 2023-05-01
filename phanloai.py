@@ -7,12 +7,17 @@ import plotly.graph_objects as go
 def phanloai():
   dfmid = df_change()
   dfmid.rename(columns={'S6' : 'Midterm Exam','S10' : 'Final Exam'}, inplace=True)
-  check_sub = []
+  COLS = dfmid.columns.values.tolist().copy()
+  COLS.remove('BONUS')
+  options = COLS[4:14]
+  st.write('Chọn 2 hoặc 3 đặc trưng bạn muốn:')
+  check = []
   cols = st.columns(5)
   for i in range(2):
-    for j in range(6):
-      check_sub.append(str(cols[j].checkbox(unisub[6*i+j],value=True,key=str(unisub[6*i+j])+' key')))
-  A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
+    for j in range(5):
+      check.append(str(cols[j].checkbox(options[5*i+j],key=str(options[5*i+j])+' key')))
+  A_check = np.stack((check,options)).T
+  st.write(A_check)
 
   
   #if option == '3 đặc trưng':
