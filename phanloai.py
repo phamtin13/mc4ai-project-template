@@ -55,6 +55,7 @@ def phanloai():
     data = []
     for i in np.unique(y):
       data.append(go.Scatter3d(x=X[y==i,0], y=X[y==i,1], z=X[y==i,2], mode='markers',name = i))
+    
     x = np.linspace(0, 10, 100)
     y1 = np.linspace(0, 10, 100)
 
