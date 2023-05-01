@@ -39,8 +39,8 @@ def phanloai():
     fig = plt.figure(figsize=(8,8))
     for i in np.unique(y):
       plt.scatter(X[y==i,0],X[y==i,1])
-    plt.xlabel(choice[:,1][0])
-    plt.ylabel(choice[:,1][1])
+    plt.xlabel(choice[0])
+    plt.ylabel(choice[1])
     plt.plot(x,-(w1*x+bias)/w2)
     plt.legend(np.unique(y))
     st.pyplot(fig)
