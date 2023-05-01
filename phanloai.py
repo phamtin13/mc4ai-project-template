@@ -22,7 +22,7 @@ def phanloai():
   y = np.array(dfmid['Fail or Pass'])
   
   if len(A[A[:,0]=='True']) == 0:
-    st.info('Hãy chọn 2 hoặc 3 đặc trưng để phân tích xem điểm số phải nằm trong khoảng nào mới có thể đậu.')
+    st.info('Hãy chọn 2 hoặc 3 đặc trưng để phân tích xem điểm số phải nằm trong khoảng nào mới có cơ hội đậu khoá học (GPA phải tối thiểu là 6 điểm).')
     
   elif len(A[A[:,0]=='True']) == 1:
     st.info('Bạn đã chọn: '+A[A[:,0]=='True',1][0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
