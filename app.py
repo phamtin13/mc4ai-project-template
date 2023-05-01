@@ -2,6 +2,7 @@ import streamlit as st
 from danhsach import danhsach
 from bieudo import bieudo
 from phannhom import phannhom
+from phanloai import phanloai
 
 def main():
   st.title('BẢNG ĐIỂM LỚP PY4AI 09/2022')
@@ -15,5 +16,8 @@ def main():
  
   with tab3:
     phannhom()
+    
+  with tab4:
+    phanloai()
     
 main()
