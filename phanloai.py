@@ -39,7 +39,7 @@ def phanloai():
     for i in np.unique(y):
       plt.scatter(X[y==i,0],X[y==i,1])
     plt.legend(np.unique(y))
-    st.pyplot(fig)
+    st.write(fig)
    
   else:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
