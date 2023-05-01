@@ -34,11 +34,12 @@ def phanloai():
     bias = model.intercept_[0]
     w1, w2 = weights
     
-    for i in np.unique(dfmid['Fail or Pass']):
-      st.write(plt.scatter(X[y==i,0],X[y==i,1]))
-    plt.legend(np.unique(dfmid['Fail or Pass']))
     x = np.array([0,10])
-    st.write(plt.plot(x,-(w1*x+bias)/w2))
+    fig = plt.plot(x,-(w1*x+bias)/w2)
+    for i in np.unique(dfmid['Fail or Pass']):
+      plt.scatter(X[y==i,0],X[y==i,1]))
+    plt.legend(np.unique(dfmid['Fail or Pass']))
+    st.pyplot(fig)
    
   else:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
