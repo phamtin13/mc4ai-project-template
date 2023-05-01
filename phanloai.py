@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 from df_change import df_change
 from sklearn.cluster import KMeans
+from sklearn.linear_model import LogisticRegression
 import plotly.graph_objects as go
 
 def phanloai():
@@ -25,11 +26,11 @@ def phanloai():
   elif len(A[A[:,0]=='True']) == 1:
     st.info('Bạn đã chọn: '+A[A[:,0]=='True',1][0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
-  elif len(A[A[:,0]=='True']) > 3:
+  elif len(A[A[:,0]=='True']) == 2:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
    
   else:
-    st.success('Chào bạn.')
+    st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
   
   #if option == '3 đặc trưng':
     #X = np.stack((dfmid['Homework'],dfmid['Midterm Exam'],dfmid['Final Exam'])).T
