@@ -21,7 +21,7 @@ def phanloai():
   A = np.stack((check,options)).T
   X = dfmid[A[A[:,0]=='True',1]]
   y = dfmid['Fail or Pass']
-  st.write(y)
+  st.write(X)
   
   if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn.')
