@@ -35,11 +35,14 @@ def phanloai():
     w1, w2 = weights
     
     x = np.array([0,10])
-    fig = plt.plot(x,-(w1*x+bias)/w2)
+    fig = plt.figure(figsize=(8,8))
     for i in np.unique(y):
       plt.scatter(X[y==i,0],X[y==i,1])
+    plt.xlabel(X[:,0][0])
+    plt.ylabel(X[:,0][1])
+    plt.plot(x,-(w1*x+bias)/w2)
     plt.legend(np.unique(y))
-    st.write(fig)
+    st.pyplot(fig)
    
   else:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
