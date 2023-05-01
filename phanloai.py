@@ -32,9 +32,9 @@ def phanloai():
   elif len(A[A[:,0]=='True']) == 2:
     model = LogisticRegression()
     model.fit(X, y)
-    #weights = model.coef_[0]
-    #bias = model.intercept_[0]
-    #w1, w2 = weights
+    weights = model.coef_[0]
+    bias = model.intercept_[0]
+    w1, w2 = weights
     
     #for i in np.unique(dfmid['Fail or Pass']):
       #st.write(plt.scatter(X[y==i,0],X[y==i,1]))
