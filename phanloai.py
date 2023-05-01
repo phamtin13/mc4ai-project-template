@@ -21,6 +21,7 @@ def phanloai():
   A = np.stack((check,options)).T
   X = dfmid[A[A[:,0]=='True',1]]
   y = dfmid['Fail or Pass']
+  st.write(y)
   
   if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn.')
@@ -30,15 +31,15 @@ def phanloai():
     
   elif len(A[A[:,0]=='True']) == 2:
     model = LogisticRegression()
-    model.fit(X, y)
-    weights = model.coef_[0]
-    bias = model.intercept_[0]
-    w1, w2 = weights
+    #model.fit(X, y)
+    #weights = model.coef_[0]
+    #bias = model.intercept_[0]
+    #w1, w2 = weights
     
-    for i in np.unique(dfmid['Fail or Pass']):
-      st.write(plt.scatter(X[y==i,0],X[y==i,1]))
-    plt.legend(np.unique(dfmid['Fail or Pass']))
-    st.write(plt.plot(x,-(w1*x+bias)/w2))
+    #for i in np.unique(dfmid['Fail or Pass']):
+      #st.write(plt.scatter(X[y==i,0],X[y==i,1]))
+    #plt.legend(np.unique(dfmid['Fail or Pass']))
+    #st.write(plt.plot(x,-(w1*x+bias)/w2))
    
   else:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
