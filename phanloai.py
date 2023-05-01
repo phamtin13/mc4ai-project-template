@@ -12,7 +12,7 @@ def phanloai():
   COLS = dfmid.columns.values.tolist().copy()
   COLS.remove('BONUS')
   options = np.array(['Điểm bài tập trung bình','Midterm Exam','Final Exam'])
-  st.subheader('Chọn 2 hoặc 3 đặc trưng bạn muốn:')
+  st.subheader('Phân tích điểm số để biết đậu hoặc rớt:')
   check = []
   cols = st.columns(3)
   for i in range(3):
