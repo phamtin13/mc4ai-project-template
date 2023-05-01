@@ -56,13 +56,13 @@ def phanloai():
     for i in np.unique(y):
       data.append(go.Scatter3d(x=X[y==i,0], y=X[y==i,1], z=X[y==i,2], mode='markers',name = i))
     x = np.linspace(0, 10, 100)
-    y = np.linspace(0, 10, 100)
+    y1 = np.linspace(0, 10, 100)
 
-    xx, yy = np.meshgrid(x, y)
+    xx, yy = np.meshgrid(x, y1)
     xy = np.c_[xx.ravel(), yy.ravel()]  
     z = -(w1*xy[:,0] + w2*xy[:,1]+bias)/w3
     z = z.reshape(xx.shape)
-    data.append(go.Surface(x=x, y=y, z=z))
+    data.append(go.Surface(x=x, y=y1, z=z))
     fig = go.Figure(data=data)
     fig.update_layout(showlegend=True,scene = dict(xaxis = dict(title=choice[0]),yaxis = dict(title=choice[1]),zaxis = dict(title=choice[2])))
     st.plotly_chart(fig)
