@@ -38,8 +38,8 @@ def phanloai():
     fig = plt.figure(figsize=(8,8))
     for i in np.unique(y):
       plt.scatter(X[y==i,0],X[y==i,1])
-    plt.xlabel(X[:,1][0])
-    plt.ylabel(X[:,1][1])
+    plt.xlabel(A[:,1][0])
+    plt.ylabel(A[:,1][1])
     plt.plot(x,-(w1*x+bias)/w2)
     plt.legend(np.unique(y))
     st.pyplot(fig)
