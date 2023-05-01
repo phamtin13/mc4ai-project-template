@@ -18,7 +18,8 @@ def phanloai():
     for j in range(5):
       check.append(str(cols[j].checkbox(options[5*i+j],key=str(options[5*i+j])+' key')))
   A = np.stack((check,options)).T
-  st.write(A)
+  X = A[A[:,0]=='True',1]
+  st.write(X)
   
   if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng mà bạn muốn.')
@@ -27,7 +28,7 @@ def phanloai():
     st.info('Bạn đã chọn: '+A[A[:,0]=='True',1][0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
   elif len(A[A[:,0]=='True']) == 2:
-    st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
+    model = LogisticRegression()
    
   else:
     st.error('Xin lỗi, bạn chỉ được chọn 2 hoặc 3 đặc trưng thôi. Xin hãy chọn lại.')
