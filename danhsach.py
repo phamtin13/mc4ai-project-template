@@ -67,7 +67,7 @@ def danhsach():
   st.write('GPA: cao nhất',dfmid['GPA'].max(),', thấp nhất',dfmid['GPA'].max(),', trung bình',np.round(dfmid['GPA'].mean(),1))
   pyai = len(dfmid[dfmid['Fail or Pass']=='Đậu'])
   mgai = len(dfmid[dfmid['REG-MC4AI']=='Y'])
-  st.write('Số học sinh đậu khoá PY4AI (GPA tối thiểu phải trên 6.0 điểm):',pyai)
+  st.write('Số học sinh đậu khoá PY4AI (GPA tối thiểu phải là 6.0 điểm):',pyai)
   st.write('Số học sinh đăng kí khoá MC4AI:',mgai)
   if len(dfmid) == 0:
     r = 0
