@@ -65,13 +65,25 @@ def danhsach():
   dfmid.drop(np.unique(needrop), inplace=True)
   st.write('Số học sinh:',len(dfmid),'('+str(len(dfmid[dfmid['Gen']=='Nam']))+' nam, '+str(len(dfmid[dfmid['Gen']=='Nữ']))+' nữ)')
   st.write('GPA: cao nhất',dfmid['GPA'].max(),', thấp nhất',dfmid['GPA'].max(),', trung bình',np.round(dfmid['GPA'].mean(),1))
+  pyai = len(dfmid[dfmid['Fail or Pass']=='Đậu'])
   mgai = len(dfmid[dfmid['REG-MC4AI']=='Y'])
+  st.write('Số học sinh đậu khoá PY4AI (GPA tối thiểu phải trên 6.0 điểm):',pyai)
   st.write('Số học sinh đăng kí khoá MC4AI:',mgai)
   if len(dfmid) == 0:
     r = 0
+    s = 0
   else:
-    r = np.round((mgai/len(dfmid))*100,1)
-  st.write('Phần trăm số học sinh đăng kí khoá MC4AI:',r,'%')
+    r = np.round((pyai/len(dfmid))*100,1)
+    s = np.round((mgai/len(dfmid))*100,1)
+  
+  if pyai == 0:
+    ts = 0
+  else:
+    ts = np.round((mgai/pyai)*100,1)
+    
+  st.write('Phần trăm số học sinh đậu khoá PY4AI:',r,'%')
+  st.write('Phần trăm số học sinh đăng kí khoá MC4AI:',s,'%')
+  st.write('Tỉ lệ giữa số học sinh đăng kí khoá MC4AI với số học sinh đậu khoá PY4AI:',ts,'%')
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   
   st.write(dfmid)
