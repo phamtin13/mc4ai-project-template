@@ -19,7 +19,7 @@ def phanloai():
   A = np.stack((check,options)).T
   st.write(A)
   st.write(A[:,0])
-  st.write(A[A[:,0]==True])
+  st.write(A[np.where(A[:,0]==True)])
   st.write(len(A[A[:,0]==True]))
   
   if len(A[A[:,0]==True]) == 0:
