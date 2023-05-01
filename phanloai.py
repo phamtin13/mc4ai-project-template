@@ -50,7 +50,7 @@ def phanloai():
     model.fit(X, y)
     weights = model.coef_[0]
     bias = model.intercept_[0]
-    w1, w2,w3 = weights
+    w1, w2, w3 = weights
     
     data = []
     for i in np.unique(y):
