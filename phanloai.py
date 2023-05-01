@@ -20,12 +20,13 @@ def phanloai():
   A = np.stack((check,options)).T
   X = np.array(dfmid[A[A[:,0]=='True',1]])
   y = np.array(dfmid['Fail or Pass'])
+  choice = A[A[:,0]=='True',1]
   
   if len(A[A[:,0]=='True']) == 0:
     st.info('Hãy chọn 2 hoặc 3 đặc trưng để phân tích xem điểm số phải nằm trong khoảng nào mới có cơ hội đậu khoá học (GPA phải tối thiểu là 6 điểm).')
     
   elif len(A[A[:,0]=='True']) == 1:
-    st.info('Bạn đã chọn: '+A[A[:,0]=='True',1][0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
+    st.info('Bạn đã chọn: '+choice[0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
   elif len(A[A[:,0]=='True']) == 2:
     model = LogisticRegression()
@@ -38,8 +39,8 @@ def phanloai():
     fig = plt.figure(figsize=(8,8))
     for i in np.unique(y):
       plt.scatter(X[y==i,0],X[y==i,1])
-    plt.xlabel(A[:,1][0])
-    plt.ylabel(A[:,1][1])
+    plt.xlabel(choice[:,1][0])
+    plt.ylabel(choice[:,1][1])
     plt.plot(x,-(w1*x+bias)/w2)
     plt.legend(np.unique(y))
     st.pyplot(fig)
