@@ -11,7 +11,7 @@ if len(options) == 0 or len(options) == len(uniday_keep):
 else:
   st.write('Khác')
   uniday.remove(options[0])
-  A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
+  #A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
 st.write(uniday)
 st.write(len(uniday))
 st.write(options)
