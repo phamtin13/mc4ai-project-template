@@ -9,7 +9,7 @@ if len(options) == 0 or len(options) == len(uniday):
 else:
   uniday.remove(options[0])
   A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
-st.write(len(uniday))
+st.write(uniday)
 st.write(len(uniday))
 st.write(options)
 st.write(len(options))
