@@ -7,11 +7,11 @@ uniday_keep = uniday.copy()
 options = st.multiselect('Buổi:', uniday)
 if len(options) == 0 or len(options) == len(uniday_keep):
   st.write('Giống')
-  A_day = np.stack((['True']*len(uniday),uniday,['Part of day']*len(uniday))).T
+  #A_day = np.stack((['True']*len(uniday),uniday,['Part of day']*len(uniday))).T
 else:
   st.write('Khác')
   uniday.remove(options[0])
-  #A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
+  A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
 st.write(uniday)
 st.write(len(uniday))
 st.write(options)
