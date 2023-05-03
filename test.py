@@ -4,11 +4,11 @@ from df_change import df_change
 dfmid = df_change()
 uniday = np.unique(dfmid['Part of day'])[::-1].tolist()
 options = st.multiselect('Buổi:', uniday)
-if len(options) != 0 and len(options) != len(uniday):
+if len(options) == 0 or len(options) == len(uniday):
+  A_day = np.stack((['True']*len(uniday),uniday,['Part of day']*len(uniday))).T
+else:
   uniday.remove(options[0])
   A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
-else:
-  A_day = np.stack((['True']*len(uniday),uniday,['Part of day']*len(uniday))).T
 st.write(len(uniday))
 st.write(len(options))
 st.write(options)
