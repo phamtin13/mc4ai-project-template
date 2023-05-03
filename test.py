@@ -15,4 +15,4 @@ else:
 st.write(len(uniday))
 st.write(len(options))
 st.write(options)
-st.write(A_day)
+#st.write(A_day)
