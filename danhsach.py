@@ -36,12 +36,14 @@ def danhsach():
   
   with col4:
     uniday = np.unique(dfmid['Part of day'])[::-1].tolist()
-    options = st.multiselect('Buổi:', uniday)
+    options = st.multiselect('Buổi:', uniday, default = uniday)
     if len(options) != 0 and len(options) != len(uniday):
       difday = list(set(uniday) - set(options))
       A_day = np.stack((['False']*len(difday),difday,['Part of day']*len(difday))).T
-    else:
+    elif len(options) == len(uniday):
       A_day = np.stack((['True']*len(uniday),uniday,['Part of day']*len(uniday))).T
+    else:
+      A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
   
   st.write('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
