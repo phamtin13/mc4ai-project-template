@@ -29,13 +29,12 @@ def df_change():
   subjects = [['Anh','CA'],
              ['Hoá','CH'],
              ['Lý', 'CL'],
-             ['Sinh','CS'],
              ['Toán','CT'],
              ['Tin','CTIN'],
              ['Trung - Nhật','CTRN'],
              ['Văn', 'CV'],
              ['Tích hợp / Song ngữ', 'TH','SN'],
-             ['Lớp thường', 'A', 'B'],
+             ['Khác', 'A', 'B','CS'],
              ['Sử - Địa', 'CSD']]
   def subject(row):
     r = ''.join(re.findall('\D', row[COLS[2]]))
@@ -43,9 +42,13 @@ def df_change():
       if len(i) == 2:
         if r == i[1]:
           return i[0]
-      else:
+      elif len(i) == 3:
         if r == i[1] or r == i[2]:
           return i[0]
+      else:
+        if r == i[1] or r == i[2] or r == i[3]:
+          return i[0]
+        
   dfmid['Subject'] = dfmid.apply(subject, axis=1)
   
   def classroom(row):
