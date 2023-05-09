@@ -45,8 +45,8 @@ def danhsach():
   
   st.write('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
-  unisub.remove('Lớp thường')
-  unisub.append('Lớp thường')
+  unisub.remove('Khác')
+  unisub.append('Khác')
   check_sub = []
   cols = st.columns(5)
   for i in range(2):
