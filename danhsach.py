@@ -7,7 +7,6 @@ def danhsach():
   col1, col2, col3, col4 = st.columns(4)
   dfmid = df_change()
   COLS_mid = dfmid.columns.values.tolist().copy()
-  st.snow()
   
   with col1:
     st.write('Giới tính:')
