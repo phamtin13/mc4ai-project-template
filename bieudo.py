@@ -22,10 +22,10 @@ def bieudo():
     st.info('Kết luận: '+nhanxet1[:,2][nhanxet1[:,0]==pies][0])
 
   with tab2:
-    tys = np.array([['Biểu đồ cột (histogram)',px.histogram,'PYTHON-CLASS','Gen','lớp Python và giới tính','Tổng điểm '],
-                    ['Biểu đồ cột (histogram)',px.histogram,'Subject',None,'môn học chính khoá','Tổng điểm '],
-                    ['Biểu đồ hộp (box)',px.box,'PYTHON-CLASS','Gen','lớp Python và giới tính','Điểm '],
-                    ['Biểu đồ hộp (box)',px.box,'Subject',None,'môn học chính khoá','Điểm ']])
+    tys = np.array([['Biểu đồ cột (histogram)',px.histogram,'PYTHON-CLASS','Gen','lớp Python và giới tính','Tổng điểm ',sum,' có tổng điểm cao nhất là ',' có tổng điểm thấp nhất là '],
+                    ['Biểu đồ cột (histogram)',px.histogram,'Subject',None,'môn học chính khoá','Tổng điểm ',sum,' có tổng điểm cao nhất là ',' có tổng điểm thấp nhất là '],
+                    ['Biểu đồ hộp (box)',px.box,'PYTHON-CLASS','Gen','lớp Python và giới tính','Điểm ',statistics.median,' làm tốt nhất và trung bình đạt được tới ',' làm bài chưa được tốt nhất và trung bình đạt chỉ đạt được '],
+                    ['Biểu đồ hộp (box)',px.box,'Subject',None,'môn học chính khoá','Điểm ',statistics.median,' làm tốt nhất và trung bình đạt được tới ',' làm bài chưa được tốt nhất và trung bình đạt chỉ đạt được ']])
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
     option = st.radio('Điểm từng session:', sessions, horizontal=True)
@@ -38,6 +38,6 @@ def bieudo():
       if tys[i][0] == types:
         st.subheader('Phân tích theo '+tys[i][4]+':')
         st.write(tys[i][1](dfmid, x = tys[i][2], y = option, color = tys[i][3]).update_layout(yaxis_title=tys[i][5]+option,showlegend=True))
-        st.info('Kết luận: Nhìn chung, '+str(nhanxet2[i][0]))
+        st.info('Kết luận:  \nNhìn chung, '+str(nhanxet2[i][0]))
         
 bieudo()
