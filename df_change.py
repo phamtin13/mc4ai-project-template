@@ -33,7 +33,7 @@ def df_change():
              ['Tin','CTIN'],
              ['Trung - Nhật','CTRN'],
              ['Văn', 'CV'],
-             ['Tích hợp / Song ngữ', 'TH','SN'],
+             ['Tích hợp/Song ngữ', 'TH','SN'],
              ['Khác', 'A', 'B','CS'],
              ['Sử - Địa', 'CSD']]
   def subject(row):
