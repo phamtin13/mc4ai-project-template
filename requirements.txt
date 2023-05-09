@@ -4,3 +4,4 @@ streamlit
 plotly.express
 scikit-learn
 matplotlib
+statistics
