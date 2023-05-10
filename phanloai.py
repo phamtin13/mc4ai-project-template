@@ -48,6 +48,7 @@ def phanloai():
     st.pyplot(fig)
     st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
     
+    st.divider()
     st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' tối thiểu để đậu khoá học.')
    
   else:
@@ -73,6 +74,7 @@ def phanloai():
     st.plotly_chart(fig)
     st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
     
+    st.divider()
     st.caption('Nhập điểm '+choice[0]+' và '+choice[1]+' mà bạn muốn để biết được số điểm '+choice[2]+' tối thiểu để đậu khoá học.')
   
 phanloai()
