@@ -58,7 +58,7 @@ def danhsach():
 
   A = np.concatenate((A_gender, A_grade, A_sta, A_room, A_sub))
 
-  st.write(A_room)
+  st.write(A)
   needrop = []
   for i in A:
     if i[0] == 'False':
