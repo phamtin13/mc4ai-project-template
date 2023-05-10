@@ -34,7 +34,7 @@ def df_change():
              ['Trung - Nhật','CTRN'],
              ['Văn', 'CV'],
              ['Tích hợp / Song ngữ', 'TH','SN'],
-             ['Khác', 'A', 'B','CS'],
+             ['Khác', 'A', 'B'],
              ['Sử - Địa', 'CSD']]
   def subject(row):
     r = ''.join(re.findall('\D', row[COLS[2]]))
@@ -42,11 +42,8 @@ def df_change():
       if len(i) == 2:
         if r == i[1]:
           return i[0]
-      elif len(i) == 3:
-        if r == i[1] or r == i[2]:
-          return i[0]
       else:
-        if r == i[1] or r == i[2] or r == i[3]:
+        if r == i[1] or r == i[2]:
           return i[0]
         
   dfmid['Subject'] = dfmid.apply(subject, axis=1)
