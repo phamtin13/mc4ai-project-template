@@ -76,6 +76,10 @@ def df_change():
         return i[1]
   dfmid['Classroom'] = dfmid.apply(classroom, axis=1)  
   
+  def status(row):
+    if row['GPA'] >= 6.0:
+      pass
+
   return dfmid
   
 df_change()
