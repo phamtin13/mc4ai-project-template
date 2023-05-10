@@ -62,7 +62,6 @@ def danhsach():
   for i in A:
     if i[0] == 'False':
       needrop += np.where(dfmid[str(i[2])]==str(i[1]))[0].tolist()
-  st.write(dfmid)
   
   dfmid.drop(np.unique(needrop), inplace=True)
   #st.write('Số học sinh:',len(dfmid),'('+str(len(dfmid[dfmid['Gen']=='Nam']))+' nam, '+str(len(dfmid[dfmid['Gen']=='Nữ']))+' nữ)')
@@ -83,6 +82,6 @@ def danhsach():
 
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   
-  #st.write(dfmid)
+  st.write(dfmid)
     
 danhsach()
