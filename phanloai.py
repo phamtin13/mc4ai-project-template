@@ -32,49 +32,55 @@ def phanloai():
     st.warning('Bạn đã chọn: '+choice[0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
   elif len(A[A[:,0]=='True']) == 2:
-    model.fit(X, y)
-    weights = model.coef_[0]
-    bias = model.intercept_[0]
-    w1, w2 = weights
+    col1,col2 = st.columns(2)
     
-    x = np.array([0,10])
-    fig = plt.figure(figsize=(8,8))
-    for i in np.unique(y):
-      plt.scatter(X[y==i,0],X[y==i,1])
-    plt.xlabel(choice[0])
-    plt.ylabel(choice[1])
-    plt.plot(x,-(w1*x+bias)/w2)
-    plt.legend(np.unique(y))
-    st.pyplot(fig)
-    st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
+    with col1:
+      model.fit(X, y)
+      weights = model.coef_[0]
+      bias = model.intercept_[0]
+      w1, w2 = weights
+
+      x = np.array([0,10])
+      fig = plt.figure(figsize=(8,8))
+      for i in np.unique(y):
+        plt.scatter(X[y==i,0],X[y==i,1])
+      plt.xlabel(choice[0])
+      plt.ylabel(choice[1])
+      plt.plot(x,-(w1*x+bias)/w2)
+      plt.legend(np.unique(y))
+      st.pyplot(fig)
+      st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
     
-    st.divider()
-    st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' tối thiểu để đậu khoá học.')
+    with col2:
+      st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' tối thiểu để đậu khoá học.')
    
   else:
-    model.fit(X, y)
-    weights = model.coef_[0]
-    bias = model.intercept_[0]
-    w1, w2, w3 = weights
+    col1,col2 = st.columns(2)
     
-    data = []
-    for i in np.unique(y):
-      data.append(go.Scatter3d(x=X[y==i,0], y=X[y==i,1], z=X[y==i,2], mode='markers',name = i))
-    
-    x = np.linspace(0, 10, 100)
-    y1 = np.linspace(0, 10, 100)
+    with col1:
+      model.fit(X, y)
+      weights = model.coef_[0]
+      bias = model.intercept_[0]
+      w1, w2, w3 = weights
 
-    xx, yy = np.meshgrid(x, y1)
-    xy = np.c_[xx.ravel(), yy.ravel()]  
-    z = -(w1*xy[:,0] + w2*xy[:,1]+bias)/w3
-    z = z.reshape(xx.shape)
-    data.append(go.Surface(x=x, y=y1, z=z))
-    fig = go.Figure(data=data)
-    fig.update_layout(showlegend=True,scene = dict(xaxis = dict(title=choice[0]),yaxis = dict(title=choice[1]),zaxis = dict(title=choice[2])))
-    st.plotly_chart(fig)
-    st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
+      data = []
+      for i in np.unique(y):
+        data.append(go.Scatter3d(x=X[y==i,0], y=X[y==i,1], z=X[y==i,2], mode='markers',name = i))
+
+      x = np.linspace(0, 10, 100)
+      y1 = np.linspace(0, 10, 100)
+
+      xx, yy = np.meshgrid(x, y1)
+      xy = np.c_[xx.ravel(), yy.ravel()]  
+      z = -(w1*xy[:,0] + w2*xy[:,1]+bias)/w3
+      z = z.reshape(xx.shape)
+      data.append(go.Surface(x=x, y=y1, z=z))
+      fig = go.Figure(data=data)
+      fig.update_layout(showlegend=True,scene = dict(xaxis = dict(title=choice[0]),yaxis = dict(title=choice[1]),zaxis = dict(title=choice[2])))
+      st.plotly_chart(fig)
+      st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
     
-    st.divider()
-    st.caption('Nhập điểm '+choice[0]+' và '+choice[1]+' mà bạn muốn để biết được số điểm '+choice[2]+' tối thiểu để đậu khoá học.')
+    with col2:
+      st.capti('Nhập điểm '+choice[0]+' và '+choice[1]+' mà bạn muốn để biết được số điểm '+choice[2]+' tối thiểu để đậu khoá học.')
   
 phanloai()
