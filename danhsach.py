@@ -56,7 +56,7 @@ def danhsach():
       check_sub.append(str(cols[j].checkbox(unisub[5*i+j],value=True,key=str(unisub[5*i+j])+' key')))
   A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
 
-  A = np.concatenate((A_gender, A_grade, A_sta, A_day, A_room))
+  A = np.concatenate((A_gender, A_grade, A_sta, A_room, A_sub))
 
   needrop = []
   for i in A:
