@@ -25,25 +25,25 @@ def danhsach():
       A_grade = np.stack((['False']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
     
   with col3:
-    uniroom = np.unique(dfmid['Classroom']).tolist()
-    rooms = np.array(['Tất cả']+ uniroom)
-    option = st.selectbox('Phòng:',rooms)
+    unista = np.unique(dfmid['Status']).tolist()
+    stas = np.array(['Tất cả']+ unista)
+    option = st.selectbox('Tình trạng học:',stas)
     if option == 'Tất cả':
-      A_room = np.stack((['True']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
+      A_sta = np.stack((['True']*len(unista),unista,['Status']*len(unista))).T
     else:
-      uniroom.remove(option)
-      A_room = np.stack((['False']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
+      difsta = list(set(unista) - set(option))
+      A_sta = np.stack((['False']*len(difsta),difsta,['Status']*len(difsta))).T
   
   with col4:
-    uniday = np.unique(dfmid['Part of day'])[::-1].tolist()
-    options = st.multiselect('Buổi:', uniday, default = uniday)
-    if len(options) != 0 and len(options) != len(uniday):
-      difday = list(set(uniday) - set(options))
-      A_day = np.stack((['False']*len(difday),difday,['Part of day']*len(difday))).T
-    elif len(options) == len(uniday):
-      A_day = np.stack((['True']*len(uniday),uniday,['Part of day']*len(uniday))).T
+    uniroom = np.unique(dfmid['Classroom']).tolist()
+    options = st.multiselect('Phòng học và buổi học:', uniroom, default = uniroom)
+    if len(options) != 0 and len(options) != len(uniroom):
+      difroom = list(set(uniroom) - set(options))
+      A_room = np.stack((['False']*len(difroom),difroom,['Classroom']*len(difroom))).T
+    elif len(options) == len(uniroom):
+      A_room = np.stack((['True']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
     else:
-      A_day = np.stack((['False']*len(uniday),uniday,['Part of day']*len(uniday))).T
+      A_room = np.stack((['False']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
   
   st.write('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
@@ -56,7 +56,7 @@ def danhsach():
       check_sub.append(str(cols[j].checkbox(unisub[5*i+j],value=True,key=str(unisub[5*i+j])+' key')))
   A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
 
-  A = np.concatenate((A_gender, A_grade, A_room, A_day, A_sub))
+  A = np.concatenate((A_gender, A_grade, A_sta, A_day, A_room))
 
   needrop = []
   for i in A:
