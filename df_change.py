@@ -77,8 +77,13 @@ def df_change():
   dfmid['Classroom'] = dfmid.apply(classroom, axis=1)  
   
   def status(row):
-    if row['GPA'] >= 6.0:
-      pass
+    if row['GPA'] >= 6.0 and row['REG-MC4AI'] == 'Y':
+      return 'Đậu khóa học và có đăng ký tiếp'
+    elif row['GPA'] >= 6.0 and row['REG-MC4AI'] == 'N':
+      return 'Đậu khóa học nhưng không đăng ký tiếp'
+    else:
+      return 'Rớt khoa học'
+  dfmid['Status'] = dfmid.apply(status, axis=1) 
 
   return dfmid
   
