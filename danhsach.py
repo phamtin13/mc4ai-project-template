@@ -58,18 +58,19 @@ def danhsach():
 
   A = np.concatenate((A_gender, A_grade, A_sta, A_room, A_sub))
 
+  st.write(A_sta)
   needrop = []
   for i in A:
     if i[0] == 'False':
       needrop += np.where(dfmid[str(i[2])]==str(i[1]))[0].tolist()
   
   dfmid.drop(np.unique(needrop), inplace=True)
-  st.write('Số học sinh:',len(dfmid),'('+str(len(dfmid[dfmid['Gen']=='Nam']))+' nam, '+str(len(dfmid[dfmid['Gen']=='Nữ']))+' nữ)')
-  st.write('GPA: cao nhất',dfmid['GPA'].max(),', thấp nhất',dfmid['GPA'].min(),', trung bình',np.round(dfmid['GPA'].mean(),1))
+  #st.write('Số học sinh:',len(dfmid),'('+str(len(dfmid[dfmid['Gen']=='Nam']))+' nam, '+str(len(dfmid[dfmid['Gen']=='Nữ']))+' nữ)')
+  #st.write('GPA: cao nhất',dfmid['GPA'].max(),', thấp nhất',dfmid['GPA'].min(),', trung bình',np.round(dfmid['GPA'].mean(),1))
   pyai = len(dfmid[dfmid['Fail or Pass']=='Đậu'])
   mgai = len(dfmid[dfmid['REG-MC4AI']=='Y'])
-  st.write('Số học sinh đậu khoá PY4AI (GPA tối thiểu phải là 6.0 điểm):',pyai)
-  st.write('Số học sinh đăng kí khoá MC4AI:',mgai)
+  #st.write('Số học sinh đậu khoá PY4AI (GPA tối thiểu phải là 6.0 điểm):',pyai)
+  #st.write('Số học sinh đăng kí khoá MC4AI:',mgai)
   if len(dfmid) == 0:
     r = 0
     s = 0
@@ -77,11 +78,11 @@ def danhsach():
     r = np.round((pyai/len(dfmid))*100,1)
     s = np.round((mgai/len(dfmid))*100,1)
 
-  st.write('Phần trăm số học sinh đậu khoá PY4AI:',r,'%')
-  st.write('Phần trăm số học sinh đăng kí khoá MC4AI:',s,'%')
+  #st.write('Phần trăm số học sinh đậu khoá PY4AI:',r,'%')
+  #st.write('Phần trăm số học sinh đăng kí khoá MC4AI:',s,'%')
 
   dfmid.drop(columns=COLS_mid[17:], inplace=True)
   
-  st.write(dfmid)
+  #st.write(dfmid)
     
 danhsach()
