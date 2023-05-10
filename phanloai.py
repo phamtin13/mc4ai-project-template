@@ -44,7 +44,7 @@ def phanloai():
     plt.plot(x,-(w1*x+bias)/w2)
     plt.legend(np.unique(y))
     st.pyplot(fig)
-    st.success('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
+    st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
    
   else:
     model.fit(X, y)
@@ -67,6 +67,6 @@ def phanloai():
     fig = go.Figure(data=data)
     fig.update_layout(showlegend=True,scene = dict(xaxis = dict(title=choice[0]),yaxis = dict(title=choice[1]),zaxis = dict(title=choice[2])))
     st.plotly_chart(fig)
-    st.success('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
+    st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
   
 phanloai()
