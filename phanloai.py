@@ -12,6 +12,8 @@ def phanloai():
   COLS = dfmid.columns.values.tolist().copy()
   COLS.remove('BONUS')
   options = np.array(['Điểm bài tập trung bình','Midterm Exam','Final Exam'])
+  data = np.round(np.arange(0,10.1,0.1),1)
+  
   st.subheader('Phân tích điểm số để biết đậu hoặc rớt:')
   check = []
   cols = st.columns(3)
@@ -45,6 +47,8 @@ def phanloai():
     plt.legend(np.unique(y))
     st.pyplot(fig)
     st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
+    
+    st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' tối thiểu để đậu khoá học.')
    
   else:
     model.fit(X, y)
@@ -68,5 +72,7 @@ def phanloai():
     fig.update_layout(showlegend=True,scene = dict(xaxis = dict(title=choice[0]),yaxis = dict(title=choice[1]),zaxis = dict(title=choice[2])))
     st.plotly_chart(fig)
     st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
+    
+    st.caption('Nhập điểm '+choice[0]+' và '+choice[1]+' mà bạn muốn để biết được số điểm '+choice[2]+' tối thiểu để đậu khoá học.')
   
 phanloai()
