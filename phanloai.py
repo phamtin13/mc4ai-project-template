@@ -53,7 +53,8 @@ def phanloai():
     
     with col2:
       st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' tối thiểu để đậu khoá học.')
-      number = st.number_input('Nhập '+choice[0]+':', min_value = 0.0, max_value = 10.0)
+      number = st.number_input('Nhập '+choice[0]+':', min_value = 0.0, max_value = 10.0, step = 0.1)
+      number = np.round(float(number),1)
       
       ts = []
       for i in range(len(data)):
@@ -72,6 +73,8 @@ def phanloai():
       if number in data_label[:,0]:
         newnum = data_label[data_label[:,0]==number,1][0]
         st.success('Chúc mừng, bạn sẽ có cơ hội đậu khoá học với số điểm '+choice[1]+' tối thiểu là '+str(newnum)+' điểm.')
+      else:
+        st.error('Rất tiếc, số điểm '+choice[0]+' của bạn vẫn chưa đủ để đậu khoá học.')
    
   else:
     col1,col2 = st.columns([2,1])
