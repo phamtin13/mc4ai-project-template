@@ -69,7 +69,7 @@ def df_change():
   party = [['114-C','Phòng A114 buổi chiều'],
            ['114-S','Phòng A114 buổi sáng'],
            ['115-S','Phòng A115 buổi sáng'],
-           ['115-C','Phòng A114 buổi chiều']]
+           ['115-C','Phòng A115 buổi chiều']]
   def classroom(row):
     for i in party:
       if row['PYTHON-CLASS'] == i[0]:
