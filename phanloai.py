@@ -73,6 +73,7 @@ def phanloai():
       if number in data_label[:,0]:
         newnum = data_label[data_label[:,0]==number,1][0]
         st.success('Chúc mừng, bạn sẽ có cơ hội đậu khoá học với số điểm '+choice[1]+' tối thiểu là '+str(newnum)+' điểm.')
+        st.balloons()
       else:
         st.error('Rất tiếc, số điểm '+choice[0]+' của bạn vẫn chưa đủ để đậu khoá học.')
    
