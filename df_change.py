@@ -66,10 +66,10 @@ def df_change():
       return 'Rớt'
   dfmid['Fail or Pass'] = dfmid.apply(failorpass, axis=1)
 
-  party = [['114-C','Phòng A114 buổi chiều'],
-           ['114-S','Phòng A114 buổi sáng'],
-           ['115-S','Phòng A115 buổi sáng'],
-           ['115-C','Phòng A115 buổi chiều']]
+  party = [['114-S','A114 - Sáng'],
+           ['114-C','A114 - Chiều'],
+           ['115-S','A115 - Sáng'],
+           ['115-C','A115 - Chiều']]
   def classroom(row):
     for i in party:
       if row['PYTHON-CLASS'] == i[0]:
