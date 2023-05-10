@@ -48,10 +48,6 @@ def df_change():
         
   dfmid['Subject'] = dfmid.apply(subject, axis=1)
   
-  def classroom(row):
-    return 'A' + row[COLS[3]][:3]
-  dfmid['Classroom'] = dfmid.apply(classroom, axis=1)
-  
   def partofday(row):
     if row[COLS[3]][-1] == 'C':
       return 'Chiều'
@@ -69,6 +65,16 @@ def df_change():
     else:
       return 'Rớt'
   dfmid['Fail or Pass'] = dfmid.apply(failorpass, axis=1)
+
+  party = [['114-C','Phòng A114 buổi chiều'],
+           ['114-S','Phòng A114 buổi sáng'],
+           ['115-S','Phòng A115 buổi sáng'],
+           ['115-C','Phòng A114 buổi chiều']]
+  def classroom(row):
+    for i in party:
+      if row['PYTHON-CLASS'] == i[0]:
+        return i[1]
+  dfmid['Classroom'] = dfmid.apply(classroom, axis=1)  
   
   return dfmid
   
