@@ -32,7 +32,7 @@ def phanloai():
     st.warning('Bạn đã chọn: '+choice[0]+'. Xin hãy chọn 1 hoặc 2 cái nữa.')
     
   elif len(A[A[:,0]=='True']) == 2:
-    col1,col2 = st.columns(2)
+    col1,col2 = st.columns([2,1])
     
     with col1:
       model.fit(X, y)
@@ -52,10 +52,29 @@ def phanloai():
       st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
     
     with col2:
-      st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' tối thiểu để đậu khoá học.')
+      st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' 
+      number = st.number_input('Nhập '+choice[0]+':', min_value = 0.0, max_value = 10.0)
+      
+      ts = []
+      for i in range(len(data)):
+        ts.append([])
+        for j in data:
+          ts[i].append([data[i],j])
+      labels = []
+      for i in ts:
+        labels.append(model.predict(i).tolist())
+      data_label = []
+      for i in range(len(ts)):
+        for j in range(len(labels[i])):
+          if labels[i][j] == 'Đậu':
+            data_label.append(ts[i][j])
+      data_label = np.array(data_label)
+      if number in data_label[:,0]:
+        newnum = data_label[data_label[:,0]==number,1][0]
+        st.success('Chúc mừng, bạn sẽ có cơ hội đậu khoá học với số điểm '+choice[1]+' tối thiểu là '+str(newnum)+' điểm.')
    
   else:
-    col1,col2 = st.columns(2)
+    col1,col2 = st.columns([2,1])
     
     with col1:
       model.fit(X, y)
