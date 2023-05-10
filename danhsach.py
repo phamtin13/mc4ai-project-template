@@ -31,8 +31,8 @@ def danhsach():
     if option == 'Tất cả':
       A_sta = np.stack((['True']*len(unista),unista,['Status']*len(unista))).T
     else:
-      difsta = list(set(unista) - set(option))
-      A_sta = np.stack((['False']*len(difsta),difsta,['Status']*len(difsta))).T
+      unista.remove(option)
+      A_sta = np.stack((['False']*len(unista),unista,['Status']*len(unista))).T
   
   with col4:
     uniroom = np.unique(dfmid['Classroom']).tolist()
