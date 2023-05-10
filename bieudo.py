@@ -29,7 +29,8 @@ def bieudo():
                     ['Biểu đồ hộp (box)',px.box,'Subject',None,'môn học chính khoá','Điểm ',statistics.median,' làm tốt nhất và trung bình đạt được tới ',' làm bài chưa được tốt nhất và trung bình chỉ đạt được ']])
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
-    option = st.radio('Điểm từng session:', sessions, horizontal=True)
+    option = st.select_slider('Điểm từng session:', options = sessions)
+    #option = st.radio('Điểm từng session:', sessions, horizontal=True)
     
     for i in range(len(tys)):
       if tys[i][0] == types:
