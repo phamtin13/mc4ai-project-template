@@ -30,7 +30,6 @@ def bieudo():
     sessions = np.array(COLS[4:15])
     types = st.radio('Phân tích điểm theo dạng:', np.unique(tys[:,0]), horizontal=True)
     option = st.select_slider('Điểm từng session:', options = sessions)
-    #option = st.radio('Điểm từng session:', sessions, horizontal=True)
     
     for i in range(len(tys)):
       if tys[i][0] == types:
