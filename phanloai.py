@@ -53,7 +53,7 @@ def phanloai():
     
     with col2:
       st.caption('Nhập điểm '+choice[0]+' mà bạn muốn để biết được số điểm '+choice[1]+' tối thiểu để đậu khoá học.')
-      number = st.number_input('Nhập '+choice[0]+':', min_value = 0.0, max_value = 10.0, step = 0.1)
+      number = st.number_input('Nhập điểm '+choice[0]+':', min_value = 0.0, max_value = 10.0, step = 0.1)
       number = np.round(float(number),1)
       
       ts = []
