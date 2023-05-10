@@ -82,7 +82,7 @@ def df_change():
     elif row['GPA'] >= 6.0 and row['REG-MC4AI'] == 'N':
       return 'Đậu khóa học nhưng không đăng ký tiếp'
     else:
-      return 'Rớt khoa học'
+      return 'Rớt khóa học'
   dfmid['Status'] = dfmid.apply(status, axis=1) 
 
   return dfmid
