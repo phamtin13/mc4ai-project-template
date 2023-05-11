@@ -9,7 +9,7 @@ def danhsach():
   COLS_mid = dfmid.columns.values.tolist().copy()
   
   with col1:
-    st.write('Giới tính:')
+    st.caption('Giới tính:')
     unigen = np.unique(dfmid['Gen'])
     check_gender = [str(st.checkbox(i,value=True,key=i+' key')) for i in unigen]
     A_gender = np.stack((check_gender,unigen,['Gen']*len(unigen))).T
@@ -45,7 +45,7 @@ def danhsach():
     else:
       A_room = np.stack((['False']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
   
-  st.write('Môn học chính khoá:')
+  st.caption('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
   unisub.remove('Khác')
   unisub.append('Khác')
