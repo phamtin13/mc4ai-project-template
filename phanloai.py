@@ -109,5 +109,30 @@ def phanloai():
       number1 = np.round(float(number1),1)
       number2 = st.number_input('Nhập điểm '+choice[1]+':', min_value = 0.0, max_value = 10.0, step = 0.1)
       number2 = np.round(float(number2),1)
+      ts = []
+      for i in range(len(data)):
+        ts.append([])
+        for j in range(len(data)):
+          ts[i].append([])
+          for k in data:
+            ts[i][j].append([data[i],data[j],k])
+      labels = []
+      for i in range(len(ts)):
+        labels.append([])
+        for j in ts[i]:
+      labels[i].append(model.predict(j).tolist())
+      data_label = []
+      for i in range(len(ts)):
+        for j in range(len(labels[i])):
+          for k in range(len(labels[i][j])):
+            if labels[i][j][k] == 'Đậu':
+              data_label.append(ts[i][j][k])
+      data_label = np.array(data_label)
+      if number1 in data_label[:,0] and number2 in data_label[data_label[:,0]==a,1]:
+        newnum = data_label[(data_label[:,0]==number1)&(data_label[:,1]==number2),2][0]
+        st.success('Chúc mừng, theo tính toán của máy tính, bạn sẽ có cơ hội đậu khoá học với số điểm '+choice[2]+' tối thiểu là '+str(newnum)+' điểm.')
+        st.balloons()
+      else:
+        st.error('Rất tiếc, theo tính toán của máy tính, số điểm '+choice[0]+' và '+choice[1]+' của bạn vẫn chưa đủ để đậu khoá học.')
   
 phanloai()
