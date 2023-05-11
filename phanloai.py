@@ -120,7 +120,7 @@ def phanloai():
       for i in range(len(ts)):
         labels.append([])
         for j in ts[i]:
-      labels[i].append(model.predict(j).tolist())
+          labels[i].append(model.predict(j).tolist())
       data_label = []
       for i in range(len(ts)):
         for j in range(len(labels[i])):
