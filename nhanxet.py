@@ -29,7 +29,7 @@ def nhanxet(option,choose,sub,good,bad):
       to_data(A_small,A_data)
       A_data = np.array(A_data)
       Ada = A_data[A_data[:,1]==i]
-      nhanxet.append('Đối với học sinh '+Ada[0][1]+', lớp '+Ada[0][2]+good+str(np.round(float(Ada[0][0]),1))+' điểm, còn lớp '+Ada[1][2]+bad+str(np.round(float(Ada[1][0]),1))+' điểm.')
+      nhanxet.append('* Đối với học sinh '+Ada[0][1]+', lớp '+Ada[0][2]+good+str(np.round(float(Ada[0][0]),1))+' điểm, còn lớp '+Ada[1][2]+bad+str(np.round(float(Ada[1][0]),1))+' điểm.')
       A = A.tolist()
       A_data = A_data.tolist()
   else:
