@@ -116,7 +116,6 @@ def phanloai():
           ts[i].append([])
           for k in data_num:
             ts[i][j].append([data_num[i],data_num[j],k])
-      st.write(ts)
       labels = []
       for i in range(len(ts)):
         labels.append([])
