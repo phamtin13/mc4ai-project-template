@@ -21,4 +21,3 @@ def main():
     phanloai()
     
 main()
-@st.cache(suppress_st_warning=True)
