@@ -130,7 +130,7 @@ def phanloai():
               data_label.append(ts[i][j][k])
       data_label = np.array(data_label)
       
-      if number1 in data_label[:,0] and number2 in data_label[data_label[:,0]==a,1]:
+      if number1 in data_label[:,0] and number2 in data_label[data_label[:,0]==number1,1]:
         newnum = data_label[(data_label[:,0]==number1)&(data_label[:,1]==number2),2][0]
         st.success('Chúc mừng, theo tính toán của máy tính, bạn sẽ có cơ hội đậu khoá học với số điểm '+choice[2]+' tối thiểu là '+str(newnum)+' điểm.')
         st.balloons()
