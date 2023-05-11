@@ -5,7 +5,7 @@ Phạm Trương Hữu Tín|10CT2|huutin0471@gmail.com
 
 # Thông tin project
 ## Đề tài: Phân tích điểm thi lớp Python4AI 092022
-## Các thư viện sử dụng: numpy, scikit-learn, plotly, matplotlib, statistics
+## Các thư viện sử dụng: numpy, scikit-learn, plotly, matplotlib, statistics, re
 ## Các chức năng chính & kế hoạch thực hiện
 
 Chức năng|Người thực hiện|Ngày hoàn thành dự kiến
