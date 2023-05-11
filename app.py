@@ -4,7 +4,6 @@ from bieudo import bieudo
 from phannhom import phannhom
 from phanloai import phanloai
 
-@st.cache(suppress_st_warning=True)
 def main():
   st.title('BẢNG ĐIỂM LỚP PY4AI 09/2022')
   tab1, tab2, tab3, tab4 = st.tabs(['Danh sách','Biểu đồ','Phân nhóm','Phân loại'])
@@ -22,3 +21,4 @@ def main():
     phanloai()
     
 main()
+@st.cache(suppress_st_warning=True)
