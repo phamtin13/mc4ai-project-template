@@ -12,7 +12,7 @@ def phanloai():
   COLS = dfmid.columns.values.tolist().copy()
   COLS.remove('BONUS')
   options = np.array(['Điểm bài tập trung bình','Midterm Exam','Final Exam'])
-  data = np.round(np.arange(0,10.1,0.1),1)
+  data_num = np.round(np.arange(0,10.1,0.1),1)
   
   st.subheader('Phân tích điểm số để biết đậu hoặc rớt:')
   check = []
@@ -57,10 +57,10 @@ def phanloai():
       number = np.round(float(number),1)
       
       ts = []
-      for i in range(len(data)):
+      for i in range(len(data_num)):
         ts.append([])
-        for j in data:
-          ts[i].append([data[i],j])
+        for j in data_num:
+          ts[i].append([data_num[i],j])
       labels = []
       for i in ts:
         labels.append(model.predict(i).tolist())
@@ -104,6 +104,10 @@ def phanloai():
       st.warning('Score: '+str(np.round(model.score(X, y)*100,1))+'%')
     
     with col2:
-      st.capti('Nhập điểm '+choice[0]+' và '+choice[1]+' mà bạn muốn để biết được số điểm '+choice[2]+' tối thiểu để đậu khoá học.')
+      st.caption('Nhập điểm '+choice[0]+' và '+choice[1]+' mà bạn muốn để biết được số điểm '+choice[2]+' tối thiểu để đậu khoá học.')
+      number1 = st.number_input('Nhập điểm '+choice[0]+':', min_value = 0.0, max_value = 10.0, step = 0.1)
+      number1 = np.round(float(number1),1)
+      number2 = st.number_input('Nhập điểm '+choice[1]+':', min_value = 0.0, max_value = 10.0, step = 0.1)
+      number2 = np.round(float(number2),1)
   
 phanloai()
