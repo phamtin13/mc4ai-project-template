@@ -20,7 +20,7 @@ def bieudo():
 
     pies = st.radio('Phân tích số lượng học sinh theo:', nhanxet1[:,0], horizontal=True)
     st.write(px.pie(dfmid, names = nhanxet1[:,1][nhanxet1[:,0]==pies][0]))
-    st.info('Kết luận: '+nhanxet1[:,2][nhanxet1[:,0]==pies][0])
+    st.info('Kết luận:  \n'+nhanxet1[:,2][nhanxet1[:,0]==pies][0])
 
   with tab2:
     tys = np.array([['Biểu đồ cột (histogram)',px.histogram,'PYTHON-CLASS','Gen','lớp Python và giới tính','Tổng điểm ',sum,' có tổng điểm cao nhất là ',' có tổng điểm thấp nhất là '],
