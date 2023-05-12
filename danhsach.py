@@ -23,11 +23,9 @@ def danhsach():
     radio = st.radio(label='Khối lớp:', options=grades)
     if radio == 'Tất cả':
       A_grade = to_stack('True',unigrade,'Grade')
-      #A_grade = np.stack((['True']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
     else:
       unigrade.remove(radio)
       A_grade = to_stack('False',unigrade,'Grade')
-      #A_grade = np.stack((['False']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
     
   with col3:
     unista = np.unique(dfmid['Status']).tolist()
@@ -35,11 +33,9 @@ def danhsach():
     option = st.selectbox('Tình trạng học:',stas)
     if option == 'Tất cả':
       A_sta = to_stack('True',unista,'Status')
-      #A_sta = np.stack((['True']*len(unista),unista,['Status']*len(unista))).T
     else:
       unista.remove(option)
       A_sta = to_stack('False',unista,'Status')
-      #A_sta = np.stack((['False']*len(unista),unista,['Status']*len(unista))).T
   
   with col4:
     uniroom = np.unique(dfmid['Classroom']).tolist()
@@ -47,13 +43,10 @@ def danhsach():
     if len(options) != 0 and len(options) != len(uniroom):
       difroom = list(set(uniroom) - set(options))
       A_room = to_stack('False',difroom,'Classroom')
-      #A_room = np.stack((['False']*len(difroom),difroom,['Classroom']*len(difroom))).T
     elif len(options) == len(uniroom):
       A_room = to_stack('True',uniroom,'Classroom')
-      #A_room = np.stack((['True']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
     else:
       A_room = to_stack('False',uniroom,'Classroom')
-      #A_room = np.stack((['False']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
   
   st.caption('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
