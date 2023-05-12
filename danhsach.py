@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 from df_change import df_change
 
+def to_stack(value, unique, key):
+  return np.stack(([value]*len(unique),unique,[key]*len(unique))).T
+
 def danhsach():
   col1, col2, col3, col4 = st.columns(4)
   dfmid = df_change()
@@ -19,31 +22,38 @@ def danhsach():
     grades = np.array(['Tất cả']+ unigrade)
     radio = st.radio(label='Khối lớp:', options=grades)
     if radio == 'Tất cả':
-      A_grade = np.stack((['True']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
+      A_grade = to_stack('True',unigrade,'Grade')
+      #A_grade = np.stack((['True']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
     else:
       unigrade.remove(radio)
-      A_grade = np.stack((['False']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
+      A_grade = to_stack('False',unigrade,'Grade')
+      #A_grade = np.stack((['False']*len(unigrade),unigrade,['Grade']*len(unigrade))).T
     
   with col3:
     unista = np.unique(dfmid['Status']).tolist()
     stas = np.array(['Tất cả']+ unista)
     option = st.selectbox('Tình trạng học:',stas)
     if option == 'Tất cả':
-      A_sta = np.stack((['True']*len(unista),unista,['Status']*len(unista))).T
+      A_sta = to_stack('True',unista,'Status')
+      #A_sta = np.stack((['True']*len(unista),unista,['Status']*len(unista))).T
     else:
       unista.remove(option)
-      A_sta = np.stack((['False']*len(unista),unista,['Status']*len(unista))).T
+      A_sta = to_stack('False',unista,'Status')
+      #A_sta = np.stack((['False']*len(unista),unista,['Status']*len(unista))).T
   
   with col4:
     uniroom = np.unique(dfmid['Classroom']).tolist()
     options = st.multiselect('Phòng học và buổi học:', uniroom, default = uniroom)
     if len(options) != 0 and len(options) != len(uniroom):
       difroom = list(set(uniroom) - set(options))
-      A_room = np.stack((['False']*len(difroom),difroom,['Classroom']*len(difroom))).T
+      A_room = to_stack('False',difroom,'Classroom')
+      #A_room = np.stack((['False']*len(difroom),difroom,['Classroom']*len(difroom))).T
     elif len(options) == len(uniroom):
-      A_room = np.stack((['True']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
+      A_room = to_stack('True',uniroom,'Classroom')
+      #A_room = np.stack((['True']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
     else:
-      A_room = np.stack((['False']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
+      A_room = to_stack('False',uniroom,'Classroom')
+      #A_room = np.stack((['False']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
   
   st.caption('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
