@@ -35,15 +35,15 @@ def danhsach():
       A_sta = np.stack((['False']*len(unista),unista,['Status']*len(unista))).T
   
   with col4:
-    unista = np.unique(dfmid['Status']).tolist()
-    options = st.multiselect('Tình trạng học:', unista, default = unista)
-    if len(options) != 0 and len(options) != len(unista):
-      difsta = list(set(unista) - set(options))
-      A_sta = np.stack((['False']*len(difsta),difsta,['Status']*len(difsta))).T
-    elif len(options) == len(unista):
-      A_room = np.stack((['True']*len(unista),unista,['Status']*len(unista))).T
+    uniroom = np.unique(dfmid['Classroom']).tolist()
+    options = st.multiselect('Phòng học và buổi học:', uniroom, default = uniroom)
+    if len(options) != 0 and len(options) != len(uniroom):
+      difroom = list(set(uniroom) - set(options))
+      A_room = np.stack((['False']*len(difroom),difroom,['Classroom']*len(difroom))).T
+    elif len(options) == len(uniroom):
+      A_room = np.stack((['True']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
     else:
-      A_room = np.stack((['False']*len(unista),unista,['Status']*len(unista))).T
+      A_room = np.stack((['False']*len(uniroom),uniroom,['Classroom']*len(uniroom))).T
   
   st.caption('Môn học chính khoá:')
   unisub = np.unique(dfmid['Subject']).tolist()
@@ -56,7 +56,7 @@ def danhsach():
       check_sub.append(str(cols[j].checkbox(unisub[5*i+j],value=True,key=str(unisub[5*i+j])+' key')))
   A_sub = np.stack((check_sub,unisub,['Subject']*len(unisub))).T
 
-  A = np.concatenate((A_gender, A_grade, A_sta, A_sub))
+  A = np.concatenate((A_gender, A_grade, A_sta, A_room, A_sub))
 
   needrop = []
   for i in A:
