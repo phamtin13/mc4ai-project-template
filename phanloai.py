@@ -6,6 +6,14 @@ from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression
 import plotly.graph_objects as go
 
+def data_label(ts):
+  labels = model.predict(ts).tolist()
+  data_label = []
+  for i in range(len(ts)):
+    if labels[i] == 'Đậu':
+      data_label.append(ts[i])
+  return np.array(data_label)
+  
 def phanloai():
   dfmid = df_change()
   dfmid.rename(columns={'Homework': 'Điểm bài tập trung bình','S6' : 'Midterm Exam','S10' : 'Final Exam'}, inplace=True)
@@ -58,18 +66,9 @@ def phanloai():
       
       ts = []
       for i in range(len(data_num)):
-        ts.append([])
         for j in data_num:
-          ts[i].append([data_num[i],j])
-      labels = []
-      for i in ts:
-        labels.append(model.predict(i).tolist())
-      data_label = []
-      for i in range(len(ts)):
-        for j in range(len(labels[i])):
-          if labels[i][j] == 'Đậu':
-            data_label.append(ts[i][j])
-      data_label = np.array(data_label)
+          ts.append([data_num[i],j])
+      data_label = data_label(ts)
       if number in data_label[:,0]:
         newnum = data_label[data_label[:,0]==number,1][0]
         st.success('Chúc mừng, theo tính toán của máy tính, bạn sẽ có cơ hội đậu khoá học với số điểm '+choice[1]+' tối thiểu là '+str(newnum)+' điểm. :tada:')
@@ -111,23 +110,10 @@ def phanloai():
       number2 = np.round(float(number2),1)
       ts = []
       for i in range(len(data_num)):
-        ts.append([])
         for j in range(len(data_num)):
-          ts[i].append([])
           for k in data_num:
-            ts[i][j].append([data_num[i],data_num[j],k])
-      labels = []
-      for i in range(len(ts)):
-        labels.append([])
-        for j in ts[i]:
-          labels[i].append(model.predict(j).tolist())
-      data_label = []
-      for i in range(len(ts)):
-        for j in range(len(labels[i])):
-          for k in range(len(labels[i][j])):
-            if labels[i][j][k] == 'Đậu':
-              data_label.append(ts[i][j][k])
-      data_label = np.array(data_label)
+            ts.append([data_num[i],data_num[j],k])
+      data_label = data_label(ts)
       
       if number1 in data_label[:,0] and number2 in data_label[data_label[:,0]==number1,1]:
         newnum = data_label[(data_label[:,0]==number1)&(data_label[:,1]==number2),2][0]
