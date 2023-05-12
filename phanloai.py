@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression
 import plotly.graph_objects as go
 
-def data_labels(ts):
+def data_labels(ts,model):
   labels = model.predict(ts).tolist()
   data_label = []
   for i in range(len(ts)):
@@ -68,7 +68,7 @@ def phanloai():
       for i in range(len(data_num)):
         for j in data_num:
           ts.append([data_num[i],j])
-      data_label = data_labels(ts)
+      data_label = data_labels(ts,model)
       if number in data_label[:,0]:
         newnum = data_label[data_label[:,0]==number,1][0]
         st.success('Chúc mừng, theo tính toán của máy tính, bạn sẽ có cơ hội đậu khoá học với số điểm '+choice[1]+' tối thiểu là '+str(newnum)+' điểm. :tada:')
@@ -113,7 +113,7 @@ def phanloai():
         for j in range(len(data_num)):
           for k in data_num:
             ts.append([data_num[i],data_num[j],k])
-      data_label = data_labels(ts)
+      data_label = data_labels(ts,model)
       
       if number1 in data_label[:,0] and number2 in data_label[data_label[:,0]==number1,1]:
         newnum = data_label[(data_label[:,0]==number1)&(data_label[:,1]==number2),2][0]
