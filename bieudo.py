@@ -19,7 +19,7 @@ def bieudo():
                ['Khối lớp','Grade','Số lượng học sinh lớp 10 tham gia khoá PY4AI là nhiều nhất và số lượng học sinh lớp 12 là ít nhất.'],
                ['Tình trạng học','Status','Số học sinh trong từng tình trạng đều xấp xỉ nhau, chứng tỏ rằng nhu cầu và cách học của mỗi người đều khác nhau.']])
 
-    pies = st.radio('Phân tích số lượng học sinh theo:', nhanxet1[:,0], horizontal=True)
+    pies = st.selectbox('Phân tích số lượng học sinh theo:', nhanxet1[:,0])
     st.write(px.pie(dfmid, names = nhanxet1[:,1][nhanxet1[:,0]==pies][0]))
     st.info('Kết luận:  \n'+nhanxet1[:,2][nhanxet1[:,0]==pies][0])
 
