@@ -18,3 +18,5 @@ Clustering|Phạm Trương Hữu Tín|02/05/23
 Regression|Phạm Trương Hữu Tín|02/05/23
 Classify|Phạm Trương Hữu Tín|03/05/23
 Dự đoán điểm thi|Phạm Trương Hữu Tín|03/05/23
+## Link video app demo:
+https://youtu.be/U1qHbEblz70
